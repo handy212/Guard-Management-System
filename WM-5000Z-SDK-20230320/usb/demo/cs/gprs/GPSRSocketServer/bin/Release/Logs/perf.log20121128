@@ -1,0 +1,6 @@
+2012-11-28 13:11:56,406 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 26,480,640.00, Total Thread Count: 18
+AvailableWorkingThreads: 499, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 500, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2012-11-28 13:11:53, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+

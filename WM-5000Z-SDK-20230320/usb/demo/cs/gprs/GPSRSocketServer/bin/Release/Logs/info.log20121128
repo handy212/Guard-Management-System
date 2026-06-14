@@ -1,0 +1,21 @@
+2012-11-28 13:11:53,281 [12000] INFO  SuperSocket - GPRSSocketTCPServer has been started
+2012-11-28 13:12:13,015 [3260] INFO  GPRSSocketTCPServer - Session: 0747f76f-657b-492d-adea-38d6d3c0f9cb/59.46.83.73:57655
+New SocketSession was accepted!
+2012-11-28 13:12:13,125 [9904] INFO  GPRSSocketTCPServer - Session: 0747f76f-657b-492d-adea-38d6d3c0f9cb/59.46.83.73:57655
+This session was closed!
+2012-11-28 13:12:13,187 [3260] INFO  GPRSSocketTCPServer - Session: 16e92872-62f6-418f-a050-7469fe402f2e/59.46.83.73:57658
+New SocketSession was accepted!
+2012-11-28 13:12:13,187 [7940] INFO  GPRSSocketTCPServer - Session: 16e92872-62f6-418f-a050-7469fe402f2e/59.46.83.73:57658
+This session was closed!
+2012-11-28 13:12:13,187 [3260] INFO  GPRSSocketTCPServer - Session: a87664c6-2502-4d6c-8054-e769d48deaae/59.46.83.73:57661
+New SocketSession was accepted!
+2012-11-28 13:12:13,203 [7940] INFO  GPRSSocketTCPServer - Session: a87664c6-2502-4d6c-8054-e769d48deaae/59.46.83.73:57661
+This session was closed!
+2012-11-28 13:12:13,203 [3260] INFO  GPRSSocketTCPServer - Session: c334f813-5ea8-45fe-afcb-ab5ef28a4797/59.46.83.73:57663
+New SocketSession was accepted!
+2012-11-28 13:12:13,218 [7940] INFO  GPRSSocketTCPServer - Session: c334f813-5ea8-45fe-afcb-ab5ef28a4797/59.46.83.73:57663
+This session was closed!
+2012-11-28 13:12:13,218 [3260] INFO  GPRSSocketTCPServer - Session: 5cd92a60-3904-49dd-a916-1320871bfbbe/59.46.83.73:57665
+New SocketSession was accepted!
+2012-11-28 13:12:13,218 [7940] INFO  GPRSSocketTCPServer - Session: 5cd92a60-3904-49dd-a916-1320871bfbbe/59.46.83.73:57665
+This session was closed!

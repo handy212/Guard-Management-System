@@ -1,0 +1,146 @@
+unit main;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ExtCtrls, Spin,DateUtils, Buttons,libJcommCore, libV4,
+  ComCtrls,EncdDecd;
+
+type
+  TfrmMain = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    Button1: TButton;
+    Button2: TButton;
+    label_status: TLabel;
+    PageControl1: TPageControl;
+    TabSheet1: TTabSheet;
+    Button3: TButton;
+    Button5: TButton;
+    Button6: TButton;
+    Button7: TButton;
+    edt_Agent: TEdit;
+    edt_Serviceing: TEdit;
+    Button9: TButton;
+    Button10: TButton;
+    ProgressBar1: TProgressBar;
+    OpenDialog1: TOpenDialog;
+    Memo1: TMemo;
+    procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure Button5Click(Sender: TObject);
+    procedure Button6Click(Sender: TObject);
+    procedure Button7Click(Sender: TObject);
+    procedure Button9Click(Sender: TObject);
+    procedure Button29Click(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+    procedure showStatus(content:String;value:Integer);
+
+  public
+    { Public declarations }
+  end;
+
+var
+  frmMain: TfrmMain;
+
+implementation
+
+
+
+{$R *.dfm}
+
+procedure onReadData(totalpackets:integer;currentpacket:integer);stdcall;
+begin
+     frmMain.ProgressBar1.Max:=totalpackets;
+     frmMain.ProgressBar1.StepBy(1);
+end;
+{ TfrmMain }
+{
+procedure onDownloadCallback(filename:PAnsiChar);stdcall;
+begin
+
+end;
+}
+procedure TfrmMain.showStatus(content: String; value: Integer);
+begin
+  if value>=0 then
+    label_status.Caption:=content+':'+IntTostr(value)
+  else
+    label_status.Caption:=content+':failure('+ IntToStr(value)+')';
+end;
+
+procedure TfrmMain.Button2Click(Sender: TObject);
+begin
+    showStatus('disconnect',CloseDevice());
+end;
+
+procedure TfrmMain.Button3Click(Sender: TObject);
+begin
+        showStatus('read deviceid',GetDeviceID());
+end;
+
+procedure TfrmMain.Button5Click(Sender: TObject);
+begin
+     showStatus('set datetime',SetDateTime(YearOf(Now),MonthOf(Now),DayOf(Now)
+                              ,HourOf(Now),MinuteOf(NOw),SecondOf(Now)));
+end;
+
+procedure TfrmMain.Button6Click(Sender: TObject);
+var r:Integer;
+    filename:String;
+    tick:DWORD;
+begin
+  tick:=GetTickCount();
+  Memo1.Lines.Clear;
+  ProgressBar1.Step:=0;
+  Application.ProcessMessages;
+  SetReadDataCallback(onReadData);
+  filename:=ExtractFilePath(Application.ExeName)+'\records.txt';
+  r:=GetRecords(PAnsiChar(filename),0);
+  showStatus('get record',r);
+  if r>0 then
+    Memo1.Lines.LoadFromFile(filename);
+  memo1.Lines.Append(IntToStr( getTickCount()-tick) );
+end;
+
+procedure TfrmMain.Button7Click(Sender: TObject);
+begin
+      showStatus('clear record',ClearRecords());
+end;
+
+procedure TfrmMain.Button9Click(Sender: TObject);
+begin
+    showStatus('set agent',SetAgent(PAnsiChar(edt_Agent.Text)));
+end;
+
+procedure TfrmMain.Button29Click(Sender: TObject);
+var value:PAnsiChar;
+    r:Integer;
+begin
+    value:=nil;
+    r:=GetCompass(value);
+    if r>0 then
+      showStatus('read Compass->'+String(value),r)
+    else
+      showStatus('Compass',r);
+end;
+
+procedure TfrmMain.Button1Click(Sender: TObject);
+var r:Integer;
+    tmp:PAnsiChar;
+begin
+  r:=OpenDevice();
+  showStatus('connect device',r);
+  if r>0 then begin
+    tmp:=nil;
+    r:=GetAgent(tmp);
+    if r>0 then
+      edt_Agent.Text:=String(tmp);
+  end;
+
+end;
+
+end.

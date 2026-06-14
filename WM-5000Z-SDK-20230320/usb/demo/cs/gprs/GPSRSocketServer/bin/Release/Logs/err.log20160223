@@ -1,0 +1,6 @@
+2016-02-23 14:28:16,150 [7624] ERROR GPRSSocketTCPServer - System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Shutdown(SocketShutdown how)
+   在 SuperSocket.Common.SocketEx.SafeCloseClientSocket(Socket client, ILogger logger)
+2016-02-23 14:29:28,007 [7624] ERROR GPRSSocketTCPServer - System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Shutdown(SocketShutdown how)
+   在 SuperSocket.Common.SocketEx.SafeCloseClientSocket(Socket client, ILogger logger)

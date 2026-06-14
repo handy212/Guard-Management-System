@@ -1,0 +1,26 @@
+﻿正在安装程序集“F:\GPSSocketServerSingle\bin\Debug\SuperSocket.SocketService.exe”。
+受影响的参数是:
+   logtoconsole = 
+   assemblypath = F:\GPSSocketServerSingle\bin\Debug\SuperSocket.SocketService.exe
+   logfile = F:\GPSSocketServerSingle\bin\Debug\SuperSocket.SocketService.InstallLog
+正在安装服务 GPSSocketServer...
+正在日志 Application 中创建 EventLog 源 GPSSocketServer...
+正在回滚程序集“F:\GPSSocketServerSingle\bin\Debug\SuperSocket.SocketService.exe”。
+受影响的参数是:
+   logtoconsole = 
+   assemblypath = F:\GPSSocketServerSingle\bin\Debug\SuperSocket.SocketService.exe
+   logfile = F:\GPSSocketServerSingle\bin\Debug\SuperSocket.SocketService.InstallLog
+正在将事件日志还原到源 GPSSocketServer 的前一状态。
+正在安装程序集“F:\GPSSocketServerSingle\bin\Debug\SuperSocket.SocketService.exe”。
+受影响的参数是:
+   logtoconsole = 
+   assemblypath = F:\GPSSocketServerSingle\bin\Debug\SuperSocket.SocketService.exe
+   logfile = F:\GPSSocketServerSingle\bin\Debug\SuperSocket.SocketService.InstallLog
+正在安装服务 GPSSocketServer...
+已成功安装服务 GPSSocketServer。
+正在日志 Application 中创建 EventLog 源 GPSSocketServer...
+正在提交程序集“F:\GPSSocketServerSingle\bin\Debug\SuperSocket.SocketService.exe”。
+受影响的参数是:
+   logtoconsole = 
+   assemblypath = F:\GPSSocketServerSingle\bin\Debug\SuperSocket.SocketService.exe
+   logfile = F:\GPSSocketServerSingle\bin\Debug\SuperSocket.SocketService.InstallLog

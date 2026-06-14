@@ -1,0 +1,2 @@
+2016-02-17 09:04:58,604 [7688] DEBUG GPRSSocketTCPServer - Command found: WMDEVICE - SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice, SuperSocket.QuickStart.GPRSSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-02-17 17:32:40,807 [15016] DEBUG GPRSSocketTCPServer - Command found: WMDEVICE - SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice, SuperSocket.QuickStart.GPRSSocketServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null

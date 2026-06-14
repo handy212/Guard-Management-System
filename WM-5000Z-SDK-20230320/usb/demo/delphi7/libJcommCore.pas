@@ -1,0 +1,41 @@
+unit libJcommCore;
+{
+所有的原生字符串类型String转PAnsiChar都需要经过AnsiString过渡
+strAnsi:= PAnsiChar(AnsiString(str));
+
+typedef void (__stdcall *onReadData)(long totalpackets,long currentpacket);
+typedef void (__stdcall *onDownLoadFile)(char* filename);
+}
+interface
+  // uses Windows;
+   //用于读取记录的回调
+    type POnReadData = procedure(totalpackets:integer;currentpacket:integer);stdcall;
+    type POnDownLoadFile = procedure(filename:PAnsiChar);stdcall;
+
+
+   function OpenDevice():Integer;stdcall; far external 'libJComm.dll';
+
+   function CloseDevice():Integer;stdcall; far external 'libJComm.dll';
+   function SetDeviceId(deviceid:Integer;authentication:PAnsiChar):Integer;stdcall; far external 'libJComm.dll';
+   function GetDeviceId():Integer;stdcall; far external 'libJComm.dll';
+   function Verify(val:Integer):Integer;stdcall; far external 'libJComm.dll';
+
+   function SetDateTime(year,month,day,hour,minute,second:Integer):Integer;stdcall; far external 'libJComm.dll';
+   function GetRecords(filename:PAnsiChar;encrypt:Integer):Integer;stdcall; far external 'libJComm.dll';
+   function ClearRecords():Integer;stdcall; far external 'libJComm.dll';
+   //设置回调
+   procedure SetReadDataCallback(readDataCallback:POnReadData);stdcall; far external 'libJComm.dll';
+   procedure SetDownLoadFileCallback(downloadCallback:POnDownLoadFile);stdcall; far external 'libJComm.dll';
+   
+   function SetManufacturer(manufacturer:PAnsiChar):Integer;stdcall; far external 'libJComm.dll';
+   function GetManufacturer(var manufacturer:PAnsiChar):Integer;stdcall; far external 'libJComm.dll';
+   function SetAgent(agent:PAnsiChar):Integer;stdcall; far external 'libJComm.dll';
+   function GetAgent(var agent:PAnsiChar):Integer;stdcall; far external 'libJComm.dll';
+   function SetServicing(servicing:PAnsiChar):Integer;stdcall; far external 'libJComm.dll';
+   function GetServicing(var servicing:PAnsiChar):Integer;stdcall; far external 'libJComm.dll';
+
+    function  SetAreaId(val:Integer):Integer;stdcall; far external 'libJComm.dll';
+    function  GetAreaId():Integer;stdcall; far external 'libJComm.dll';
+implementation
+
+end.

@@ -1,0 +1,15 @@
+2015-01-28 13:49:45,060 [5760] INFO  SuperSocket - GPRSSocketTCPServer has been started
+2015-01-28 13:52:53,967 [12064] INFO  SuperSocket - GPRSSocketTCPServer has been started
+2015-01-28 13:53:08,373 [13620] INFO  GPRSSocketTCPServer - Session: 5352f2e6-2169-4c9e-b156-7b9404c53916/218.24.71.24:5319
+New SocketSession was accepted!
+2015-01-28 13:53:09,826 [12312] INFO  GPRSSocketTCPServer - Session: 5352f2e6-2169-4c9e-b156-7b9404c53916/218.24.71.24:5319
+This session was closed!
+2015-01-28 14:13:26,281 [7164] INFO  SuperSocket - GPRSSocketTCPServer has been started
+2015-01-28 14:15:00,765 [7260] INFO  GPRSSocketTCPServer - Session: 02da881f-e651-4bb0-b27e-4c3bb23c64f3/127.0.0.1:1454
+New SocketSession was accepted!
+2015-01-28 14:15:02,578 [7480] INFO  GPRSSocketTCPServer - Session: 02da881f-e651-4bb0-b27e-4c3bb23c64f3/127.0.0.1:1454
+This session was closed!
+2015-01-28 15:09:12,812 [7260] INFO  GPRSSocketTCPServer - Session: 526c6d5c-d3b6-445d-b362-9e5d788b4dd1/175.167.128.62:20211
+New SocketSession was accepted!
+2015-01-28 15:09:17,781 [7476] INFO  GPRSSocketTCPServer - Session: 526c6d5c-d3b6-445d-b362-9e5d788b4dd1/175.167.128.62:20211
+This session was closed!

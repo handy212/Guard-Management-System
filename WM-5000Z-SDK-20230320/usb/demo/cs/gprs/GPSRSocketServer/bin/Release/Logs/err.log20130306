@@ -1,0 +1,855 @@
+2013-03-06 13:40:25,640 [7252] ERROR GPRSSocketTCPServer - System.Net.Sockets.SocketException: 通常每个套接字地址(协议/网络地址/端口)只允许使用一次。
+   在 System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   在 SuperSocket.SocketEngine.AsyncSocketServer`2.StartListen()
+2013-03-06 13:40:25,718 [7152] ERROR SuperSocket - Failed to start GPRSSocketTCPServer server!
+2013-03-06 16:08:29,687 [7880] ERROR GPRSSocketTCPServer - Session: 53f64ffd-4b4a-447a-aae1-2e8161622500/31.62.171.188:6709
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:08:29,781 [7880] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:09:00,515 [7880] ERROR GPRSSocketTCPServer - Session: 47ffbdf4-22a8-4122-b506-17e9794126f5/31.62.246.55:6325
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:09:00,515 [7880] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:09:45,109 [7880] ERROR GPRSSocketTCPServer - Session: 64571032-d03f-408c-bdb3-0c1d8c3636ed/31.61.81.234:5670
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:09:45,109 [7880] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:10:08,093 [7880] ERROR GPRSSocketTCPServer - Session: 88d53d4f-43ba-43b4-9849-55767fc806ba/46.134.173.174:7664
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:10:08,093 [7880] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:12:19,531 [7880] ERROR GPRSSocketTCPServer - Session: e07f3832-a0f3-467e-98db-e216a53e79fc/5.185.48.96:6450
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:12:19,531 [7880] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:12:45,578 [7880] ERROR GPRSSocketTCPServer - Session: d98fcb1d-1ca6-45b8-bd47-6cfeac25229d/87.96.118.87:6250
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:12:45,578 [7880] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:15:25,468 [7884] ERROR GPRSSocketTCPServer - Session: 5c86b94f-58ba-4dab-bd9f-b8a237b97824/37.228.43.143:7956
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:15:25,468 [7884] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:15:44,359 [7884] ERROR GPRSSocketTCPServer - Session: 5559fbc6-fd77-4839-b474-3688fe99912f/5.185.7.25:7310
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:15:44,359 [7884] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:17:26,687 [7880] ERROR GPRSSocketTCPServer - Session: 28fd1b65-cc4c-42e6-bfd4-fea0e731bdbf/87.96.66.243:6441
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:17:26,687 [7880] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:17:51,734 [7884] ERROR GPRSSocketTCPServer - Session: 6396bbe8-e2f8-4d7a-8ee7-937941ec0d63/31.60.84.38:7404
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:17:51,734 [7884] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:19:25,531 [7880] ERROR GPRSSocketTCPServer - Session: c101c9d1-bcdf-4bc4-9bcc-38d029692a3f/46.134.170.169:6690
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:19:25,531 [7880] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:19:49,359 [7880] ERROR GPRSSocketTCPServer - Session: 36493aa3-af8a-49cf-841e-47754ff5c228/178.56.61.205:4749
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:19:49,359 [7880] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:21:19,437 [7880] ERROR GPRSSocketTCPServer - Session: fdd3d74d-b689-4ba3-985b-83ad4ba45b6d/31.60.99.150:7064
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:21:19,437 [7880] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:21:49,765 [7884] ERROR GPRSSocketTCPServer - Session: 315a56d4-b9bf-45b3-aab2-3ad063c85c45/91.94.142.138:7390
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:21:49,765 [7884] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:24:15,296 [7884] ERROR GPRSSocketTCPServer - Session: 067920e2-1ec9-49b7-aa83-341b79a0c733/31.61.40.41:6583
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:24:15,296 [7884] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:24:41,406 [7880] ERROR GPRSSocketTCPServer - Session: 804eaf9c-63f0-44aa-90ff-f24cadadf310/37.47.154.72:6435
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:24:41,406 [7880] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:26:13,921 [7880] ERROR GPRSSocketTCPServer - Session: 79240135-dc98-46c6-99ec-c602445c0b69/31.60.147.83:7124
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:26:13,921 [7880] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:26:42,890 [7884] ERROR GPRSSocketTCPServer - Session: a7add31f-388c-4be0-8dfe-f98f7e5979e7/178.56.101.145:7334
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:26:42,890 [7884] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:35:10,750 [7880] ERROR GPRSSocketTCPServer - Session: d7970124-8f5e-46bf-aca8-ffb811adf151/178.56.69.108:5299
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:35:10,750 [7880] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:35:37,359 [7884] ERROR GPRSSocketTCPServer - Session: b0e2dd7d-fe15-4fbd-bc4e-45443799e929/5.184.63.95:7478
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:35:37,359 [7884] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:37:54,781 [7884] ERROR GPRSSocketTCPServer - Session: ce95f402-c4a3-419d-a590-977c30409e13/91.94.191.124:7445
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:37:54,781 [7884] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:38:22,375 [7884] ERROR GPRSSocketTCPServer - Session: 391b3018-696e-42f7-9c16-31d6d407d62e/31.60.44.196:6947
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:38:22,375 [7884] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:41:20,921 [7880] ERROR GPRSSocketTCPServer - Session: 3e49a61e-104a-4d11-a18d-f4cae71ff621/79.162.89.181:5608
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:41:20,921 [7880] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:44:18,625 [7884] ERROR GPRSSocketTCPServer - Session: 396d6ca0-7c21-4d6e-a13a-ee12e59acafb/31.60.54.253:7789
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:44:18,625 [7884] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:44:51,718 [7884] ERROR GPRSSocketTCPServer - Session: d452ac3d-19f2-42a6-92f7-75d658e38dd3/5.184.181.13:7257
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:44:51,718 [7884] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:46:27,468 [7880] ERROR GPRSSocketTCPServer - Session: d1720a0c-0728-4ab4-9fba-3d288ffc91d2/5.185.103.80:6921
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:46:27,468 [7880] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:46:56,546 [7880] ERROR GPRSSocketTCPServer - Session: 9a48a87f-fc9e-44b6-af0f-e2c18fd9ad69/31.60.226.12:7008
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:46:56,546 [7880] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:48:58,875 [7880] ERROR GPRSSocketTCPServer - Session: f295adbe-b8a2-400e-b7c5-822d42c32a9c/91.94.179.254:8043
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:48:58,875 [7880] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:49:25,531 [7880] ERROR GPRSSocketTCPServer - Session: 9dc1f816-694b-4609-815c-87ad23c622ba/31.60.94.30:6311
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:49:25,531 [7880] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:51:45,906 [7880] ERROR GPRSSocketTCPServer - Session: af023fbf-87e9-481f-9769-31ff8fdc06b0/5.185.34.239:7217
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:51:45,906 [7880] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:52:12,640 [7884] ERROR GPRSSocketTCPServer - Session: 47c1f7d3-228c-4246-8418-07de0bdc7cb4/5.185.54.2:7312
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:52:12,640 [7884] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:56:10,203 [7880] ERROR GPRSSocketTCPServer - Session: cc98a426-3125-42a5-9aea-8272e4d835be/5.184.28.159:6629
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:56:10,203 [7880] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:57:23,000 [7884] ERROR GPRSSocketTCPServer - Session: a7c92f14-21d9-427c-9ef1-1818ff8a4eac/31.60.250.58:4498
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:57:23,000 [7884] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:57:47,375 [7884] ERROR GPRSSocketTCPServer - Session: ffbb2e66-4380-4077-9386-e7d6f94dc327/91.94.97.93:5365
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 16:57:47,375 [7884] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 17:01:47,875 [7880] ERROR GPRSSocketTCPServer - Session: 3765685c-e707-4584-a382-764149fc5291/37.108.77.111:6414
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 17:01:47,875 [7880] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 17:04:08,890 [7880] ERROR GPRSSocketTCPServer - Session: a6ad2087-4648-45f3-901f-14f62f9a2b23/79.162.126.237:5700
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 17:04:08,890 [7880] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 17:04:33,796 [7880] ERROR GPRSSocketTCPServer - Session: 207907ee-07ab-437f-918e-9d392a8a7dd3/46.134.151.21:5832
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 17:04:33,796 [7880] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 17:06:27,984 [7884] ERROR GPRSSocketTCPServer - Session: 120420df-1951-458d-958b-dadaeaae73f1/5.184.175.0:7046
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 17:06:27,984 [7884] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 17:07:00,968 [7880] ERROR GPRSSocketTCPServer - Session: 9448fa7b-41a5-44f5-8166-4c6ba267ed6f/31.62.231.244:5720
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 17:07:00,968 [7880] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 17:07:20,953 [7884] ERROR GPRSSocketTCPServer - Session: c6e60c98-e41f-45e2-8370-f112f0ec8fff/31.62.253.213:7197
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 17:07:20,953 [7884] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 17:08:48,625 [7880] ERROR GPRSSocketTCPServer - Session: 0299f1bf-3a33-4bf2-a8fe-c0ae0700ffdc/5.184.14.92:6386
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 17:08:48,625 [7880] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 17:09:14,312 [7884] ERROR GPRSSocketTCPServer - Session: 52d670d4-ca48-40db-aa05-264dc5bd58e4/5.184.142.6:4211
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 17:09:14,312 [7884] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 17:15:43,015 [7880] ERROR GPRSSocketTCPServer - Session: 0a339df4-7b49-4d62-bf5e-2c43181a721c/37.225.179.147:4467
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 17:15:43,015 [7880] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 17:46:53,484 [7880] ERROR GPRSSocketTCPServer - Session: 55782695-5471-4023-86e7-5e0e07aed0ae/31.60.30.107:6740
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 17:46:53,484 [7880] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 17:54:44,281 [7884] ERROR GPRSSocketTCPServer - Session: 4bd7a8cc-9b5a-4b58-b62d-622904b56746/46.134.111.14:4355
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 17:54:44,281 [7884] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 17:55:17,796 [7884] ERROR GPRSSocketTCPServer - Session: f42cc5c0-cda1-4009-b913-ad6bd52574e3/79.162.44.227:5949
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 17:55:17,796 [7884] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 18:24:50,000 [7884] ERROR GPRSSocketTCPServer - Session: 242bbe99-1ca0-4a8c-956f-e18a128b9296/31.62.4.203:6377
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 18:24:50,000 [7884] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 19:10:35,343 [7884] ERROR GPRSSocketTCPServer - Session: be211788-902e-4c48-8a10-3ed9e507a6bc/31.60.123.61:8096
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 19:10:35,343 [7884] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 20:06:34,156 [7880] ERROR GPRSSocketTCPServer - Session: c93b7d0f-d14d-47e9-9e9f-ceb846232814/37.228.20.16:4386
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 20:06:34,156 [7880] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 20:06:59,937 [7880] ERROR GPRSSocketTCPServer - Session: 4f03dcd3-9195-41f8-b80f-52928d6db7ee/5.184.235.72:5891
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)
+2013-03-06 20:06:59,937 [7880] ERROR GPRSSocketTCPServer - System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.SocketBase.AppSession`2.SendResponse(Byte[] data)
+   在 SuperSocket.QuickStart.GPRSSocketServer.Command.WMDevice.ExecuteCommand(GPRSSession session, BinaryCommandInfo commandInfo) 位置 E:\devsoft\WMClass\tcp-package\demo\GPSRSocketServer\Command\WMDevice.cs:行号 46
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TCommandInfo commandInfo)
+   在 SuperSocket.SocketBase.AppSession`2.ExecuteCommand(TAppSession session, TCommandInfo cmdInfo)
+   在 SuperSocket.SocketEngine.SocketSession`2.ExecuteCommand(TCommandInfo commandInfo)
+   在 SuperSocket.SocketEngine.AsyncSocketSession`2.ProcessReceive(SocketAsyncEventArgs e)

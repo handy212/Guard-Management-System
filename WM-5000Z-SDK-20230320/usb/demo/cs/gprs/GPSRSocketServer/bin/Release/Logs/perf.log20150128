@@ -1,0 +1,672 @@
+2015-01-28 13:49:49,060 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 28,168,192.00, Total Thread Count: 18
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 13:49:45, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 13:50:48,607 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.03%, Physical Memory Usage: 27,832,320.00, Total Thread Count: 19
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 13:49:45, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 13:51:48,607 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 28,426,240.00, Total Thread Count: 19
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 13:49:45, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 13:52:56,279 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 28,192,768.00, Total Thread Count: 18
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 13:52:53, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 13:53:56,029 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.03%, Physical Memory Usage: 3,129,344.00, Total Thread Count: 19
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 13:52:53, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 13:54:56,029 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.01%, Physical Memory Usage: 4,460,544.00, Total Thread Count: 19
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 13:52:53, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 13:55:56,029 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 5,087,232.00, Total Thread Count: 19
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 13:52:53, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 13:56:56,029 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.01%, Physical Memory Usage: 5,705,728.00, Total Thread Count: 19
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 13:52:53, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 13:57:56,029 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 7,565,312.00, Total Thread Count: 17
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 13:52:53, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 13:58:56,029 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 8,159,232.00, Total Thread Count: 17
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 13:52:53, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 13:59:56,029 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 8,437,760.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 13:52:53, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:00:56,029 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 8,650,752.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 13:52:53, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:01:56,029 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 8,597,504.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 13:52:53, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:02:56,029 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 8,822,784.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 13:52:53, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:03:56,029 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 9,035,776.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 13:52:53, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:04:56,029 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 9,252,864.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 13:52:53, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:05:56,045 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 9,478,144.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 13:52:53, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:06:56,029 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 9,695,232.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 13:52:53, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:07:56,029 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 9,920,512.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 13:52:53, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:08:56,029 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 10,137,600.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 13:52:53, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:13:28,593 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 27,451,392.00, Total Thread Count: 18
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:14:28,484 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.01%, Physical Memory Usage: 4,046,848.00, Total Thread Count: 19
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:15:28,484 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.01%, Physical Memory Usage: 9,940,992.00, Total Thread Count: 19
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:16:28,484 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 10,395,648.00, Total Thread Count: 19
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:17:28,500 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 15,900,672.00, Total Thread Count: 19
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:18:28,484 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.01%, Physical Memory Usage: 16,830,464.00, Total Thread Count: 17
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:19:28,484 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 17,358,848.00, Total Thread Count: 17
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:20:28,484 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 17,821,696.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:21:28,484 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 18,739,200.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:22:28,484 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 18,890,752.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:23:28,500 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 19,103,744.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:24:28,500 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.01%, Physical Memory Usage: 19,304,448.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:25:28,500 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.01%, Physical Memory Usage: 19,505,152.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:26:28,484 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.01%, Physical Memory Usage: 19,714,048.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:27:28,484 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 19,910,656.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:28:28,484 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 20,111,360.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:29:28,484 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 20,307,968.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:30:28,484 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.01%, Physical Memory Usage: 20,504,576.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:31:28,484 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 20,701,184.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:32:28,484 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 20,905,984.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:33:28,484 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 21,102,592.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:34:28,484 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 21,295,104.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:35:28,484 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 21,491,712.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:36:28,484 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 21,692,416.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:37:28,484 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 21,913,600.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:38:28,484 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 22,093,824.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:39:28,484 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 22,274,048.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:40:28,500 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 21,983,232.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:41:28,500 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.01%, Physical Memory Usage: 22,183,936.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:42:28,484 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.01%, Physical Memory Usage: 22,380,544.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:43:28,484 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 22,589,440.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:44:28,484 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 22,786,048.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:45:28,484 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 22,982,656.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:46:28,484 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 23,191,552.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:47:28,484 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 23,388,160.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:48:28,484 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 23,588,864.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:49:28,484 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 23,781,376.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:50:28,484 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 24,006,656.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:51:28,484 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 24,211,456.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:52:28,484 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 24,416,256.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:53:28,484 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 24,625,152.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:54:28,484 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 24,825,856.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:55:28,500 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.01%, Physical Memory Usage: 25,034,752.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:56:28,500 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 25,243,648.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:57:28,500 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.01%, Physical Memory Usage: 25,444,352.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:58:28,500 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 25,640,960.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 14:59:28,500 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 25,845,760.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 15:00:28,500 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 26,050,560.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 15:01:28,500 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 26,255,360.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 15:02:28,500 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 26,456,064.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 15:03:28,500 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 26,656,768.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 15:04:28,500 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 26,861,568.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 15:05:28,500 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 27,062,272.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 15:06:28,500 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 27,291,648.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 15:07:28,500 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 27,496,448.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 15:08:28,500 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 27,164,672.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 0, Command Handling Speed: 0/s
+
+2015-01-28 15:09:28,500 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.01%, Physical Memory Usage: 28,176,384.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 2, Command Handling Speed: 0/s
+
+2015-01-28 15:10:28,500 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 28,372,992.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 2, Command Handling Speed: 0/s
+
+2015-01-28 15:11:28,515 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 28,581,888.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 2, Command Handling Speed: 0/s
+
+2015-01-28 15:12:28,515 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.01%, Physical Memory Usage: 28,782,592.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 2, Command Handling Speed: 0/s
+
+2015-01-28 15:13:28,515 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.01%, Physical Memory Usage: 29,016,064.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 2, Command Handling Speed: 0/s
+
+2015-01-28 15:14:28,515 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 29,229,056.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 2, Command Handling Speed: 0/s
+
+2015-01-28 15:15:28,515 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 29,442,048.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 2, Command Handling Speed: 0/s
+
+2015-01-28 15:16:28,515 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 29,659,136.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 2, Command Handling Speed: 0/s
+
+2015-01-28 15:17:28,515 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 29,872,128.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 2, Command Handling Speed: 0/s
+
+2015-01-28 15:18:28,515 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 30,081,024.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 2, Command Handling Speed: 0/s
+
+2015-01-28 15:19:28,515 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 30,298,112.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 2, Command Handling Speed: 0/s
+
+2015-01-28 15:20:28,515 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 30,519,296.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 2, Command Handling Speed: 0/s
+
+2015-01-28 15:21:28,515 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 30,986,240.00, Total Thread Count: 17
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 2, Command Handling Speed: 0/s
+
+2015-01-28 15:22:28,515 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.01%, Physical Memory Usage: 20,115,456.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 2, Command Handling Speed: 0/s
+
+2015-01-28 15:23:28,515 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 20,635,648.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 2, Command Handling Speed: 0/s
+
+2015-01-28 15:24:28,515 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 21,127,168.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 2, Command Handling Speed: 0/s
+
+2015-01-28 15:25:28,531 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 21,327,872.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 2, Command Handling Speed: 0/s
+
+2015-01-28 15:26:28,531 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.01%, Physical Memory Usage: 20,070,400.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 2, Command Handling Speed: 0/s
+
+2015-01-28 15:27:28,531 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 20,602,880.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 2, Command Handling Speed: 0/s
+
+2015-01-28 15:28:28,531 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.01%, Physical Memory Usage: 21,217,280.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 2, Command Handling Speed: 0/s
+
+2015-01-28 15:29:28,515 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 21,409,792.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 2, Command Handling Speed: 0/s
+
+2015-01-28 15:30:28,515 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 21,598,208.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 2, Command Handling Speed: 0/s
+
+2015-01-28 15:31:28,515 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 21,790,720.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 2, Command Handling Speed: 0/s
+
+2015-01-28 15:32:28,515 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 21,979,136.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 2, Command Handling Speed: 0/s
+
+2015-01-28 15:33:28,515 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 22,167,552.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 2, Command Handling Speed: 0/s
+
+2015-01-28 15:34:28,515 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 22,360,064.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 2, Command Handling Speed: 0/s
+
+2015-01-28 15:35:28,515 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 22,552,576.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 2, Command Handling Speed: 0/s
+
+2015-01-28 15:36:28,515 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 22,736,896.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 2, Command Handling Speed: 0/s
+
+2015-01-28 15:37:28,515 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 22,929,408.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 2, Command Handling Speed: 0/s
+
+2015-01-28 15:38:28,515 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 23,126,016.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 2, Command Handling Speed: 0/s
+
+2015-01-28 15:39:28,515 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 23,408,640.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 2, Command Handling Speed: 0/s
+
+2015-01-28 15:40:28,515 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 23,568,384.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 2, Command Handling Speed: 0/s
+
+2015-01-28 15:41:28,531 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 23,760,896.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 2, Command Handling Speed: 0/s
+
+2015-01-28 15:42:28,531 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.01%, Physical Memory Usage: 23,953,408.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 2, Command Handling Speed: 0/s
+
+2015-01-28 15:43:28,531 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 24,150,016.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 2, Command Handling Speed: 0/s
+
+2015-01-28 15:44:28,531 SuperSocket - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 24,342,528.00, Total Thread Count: 16
+AvailableWorkingThreads: 999, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 1000, MaxCompletionPortThreads: 1000
+GPRSSocketTCPServer - Started Time: 2015-01-28 14:13:26, Total Connections: 0, Total Handled Commands: 2, Command Handling Speed: 0/s
+
