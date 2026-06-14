@@ -203,3 +203,140 @@ class ClientPortalOverviewTests(APITestCase):
         self.assertEqual(response.data["client"], self.client_org.id)
         self.assertEqual(response.data["status"], "completed")
         self.assertIn("summary", response.data)
+
+
+class LiveMonitoringTests(APITestCase):
+    def setUp(self):
+        self.user = get_user_model().objects.create_user(username="ops-live", password="StrongPass123!")
+        token = Token.objects.create(user=self.user)
+        self.client.credentials(HTTP_AUTHORIZATION=f"Token {token.key}")
+        self.client_org = Client.objects.create(name="Client One", code="client-one")
+        self.site = Site.objects.create(client=self.client_org, name="HQ", code="hq")
+        self.guard = GuardProfile.objects.create(employee_number="G-1", first_name="Alex", last_name="Guard", card_number="CARD1")
+        self.device = PatrolDevice.objects.create(site=self.site, name="Reader", device_number="reader-live-1")
+        self.checkpoint = Checkpoint.objects.create(
+            site=self.site,
+            name="Gate",
+            code="CP1",
+            latitude="5.603700",
+            longitude="-0.187000",
+        )
+        starts_at = timezone.now().replace(microsecond=0)
+        self.shift = Shift.objects.create(site=self.site, name="Night", starts_at=starts_at, ends_at=starts_at + timedelta(hours=8))
+        self.assignment = GuardAssignment.objects.create(
+            guard=self.guard,
+            shift=self.shift,
+            patrol_device=self.device,
+        )
+
+    def test_live_monitoring_requires_authentication(self):
+        self.client.credentials()
+        response = self.client.get(reverse("monitoring-live"))
+        self.assertEqual(response.status_code, 401)
+
+    def test_live_monitoring_returns_guard_position_and_recent_scan(self):
+        PatrolRecord.objects.create(
+            source=PatrolRecord.Source.TCP,
+            source_record_id="live-1",
+            device=self.device,
+            guard=self.guard,
+            checkpoint=self.checkpoint,
+            device_number=self.device.device_number,
+            guard_identifier=self.guard.employee_number,
+            checkpoint_identifier=self.checkpoint.code,
+            record_type="GPSCheckPoint",
+            occurred_at=timezone.now(),
+            latitude="5.603900",
+            longitude="-0.187200",
+            speed="1.20",
+            satellites=7,
+        )
+
+        response = self.client.get(reverse("monitoring-live"))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(response.data["guards"]), 1)
+        self.assertEqual(response.data["guards"][0]["device_number"], self.device.device_number)
+        self.assertEqual(response.data["guards"][0]["latitude"], "5.603900")
+        self.assertFalse(response.data["guards"][0]["is_stale"])
+        self.assertEqual(len(response.data["recent_scans"]), 1)
+        self.assertEqual(response.data["recent_scans"][0]["checkpoint_code"], "CP1")
+        self.assertTrue(response.data["checkpoints"][0]["recently_scanned"])
+
+    def test_live_monitoring_filters_by_site(self):
+        other_site = Site.objects.create(client=self.client_org, name="Annex", code="annex")
+        PatrolRecord.objects.create(
+            source=PatrolRecord.Source.TCP,
+            source_record_id="live-2",
+            device=self.device,
+            guard=self.guard,
+            checkpoint=self.checkpoint,
+            device_number=self.device.device_number,
+            occurred_at=timezone.now(),
+            latitude="5.603900",
+            longitude="-0.187200",
+        )
+        PatrolRecord.objects.create(
+            source=PatrolRecord.Source.TCP,
+            source_record_id="live-3",
+            device_number="other-device",
+            occurred_at=timezone.now(),
+            checkpoint=Checkpoint.objects.create(site=other_site, name="Fence", code="CP2", latitude="5.610000", longitude="-0.180000"),
+        )
+
+        response = self.client.get(reverse("monitoring-live"), {"site_id": self.site.id})
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(response.data["guards"]), 1)
+        self.assertEqual(response.data["site_id"], self.site.id)
+        self.assertTrue(all(item["site_id"] == self.site.id for item in response.data["checkpoints"]))
+
+
+class LiveMonitoringWebSocketTests(APITestCase):
+    def setUp(self):
+        self.user = get_user_model().objects.create_user(username="ops-ws", password="StrongPass123!")
+        self.token = Token.objects.create(user=self.user)
+
+    def test_build_live_update_payload_includes_guard_and_scan(self):
+        from apps.patrols.live_monitoring import build_live_update_payload
+
+        client = Client.objects.create(name="Client One", code="client-one")
+        site = Site.objects.create(client=client, name="HQ", code="hq")
+        guard = GuardProfile.objects.create(employee_number="G-1", first_name="Alex", last_name="Guard")
+        device = PatrolDevice.objects.create(site=site, name="Reader", device_number="reader-ws-1")
+        checkpoint = Checkpoint.objects.create(site=site, name="Gate", code="CP1", latitude="5.603700", longitude="-0.187000")
+        record = PatrolRecord.objects.create(
+            source=PatrolRecord.Source.TCP,
+            source_record_id="ws-live-1",
+            device=device,
+            guard=guard,
+            checkpoint=checkpoint,
+            device_number=device.device_number,
+            record_type="GPSCheckPoint",
+            occurred_at=timezone.now(),
+            latitude="5.603900",
+            longitude="-0.187200",
+        )
+
+        payload = build_live_update_payload(record)
+
+        self.assertEqual(payload["type"], "live_update")
+        self.assertEqual(payload["scan"]["checkpoint_code"], "CP1")
+        self.assertEqual(payload["guard"]["device_number"], device.device_number)
+        self.assertIn(site.id, payload["site_ids"])
+
+    def test_websocket_accepts_valid_token(self):
+        from asgiref.sync import async_to_sync
+        from channels.testing import WebsocketCommunicator
+
+        from config.asgi import application
+
+        async def _run():
+            communicator = WebsocketCommunicator(application, f"/ws/monitoring/live/?token={self.token.key}")
+            connected, _ = await communicator.connect()
+            self.assertTrue(connected)
+            response = await communicator.receive_json_from()
+            self.assertEqual(response["type"], "connected")
+            await communicator.disconnect()
+
+        async_to_sync(_run)()

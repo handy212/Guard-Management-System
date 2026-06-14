@@ -94,6 +94,25 @@ class PatrolRecord(TimeStampedModel):
         ]
 
 
+class GuardLiveState(TimeStampedModel):
+    device = models.OneToOneField("devices.PatrolDevice", on_delete=models.CASCADE, related_name="live_state")
+    guard = models.ForeignKey("guards.GuardProfile", null=True, blank=True, on_delete=models.SET_NULL, related_name="live_states")
+    assignment = models.ForeignKey("shifts.GuardAssignment", null=True, blank=True, on_delete=models.SET_NULL, related_name="live_states")
+    site = models.ForeignKey("sites.Site", null=True, blank=True, on_delete=models.SET_NULL, related_name="guard_live_states")
+    latitude = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
+    longitude = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
+    speed = models.DecimalField(max_digits=8, decimal_places=2, null=True, blank=True)
+    satellites = models.PositiveIntegerField(null=True, blank=True)
+    last_seen_at = models.DateTimeField()
+    last_record_type = models.CharField(max_length=80, blank=True)
+    last_checkpoint = models.ForeignKey(Checkpoint, null=True, blank=True, on_delete=models.SET_NULL, related_name="live_guard_states")
+    last_checkpoint_at = models.DateTimeField(null=True, blank=True)
+    last_patrol_record = models.ForeignKey(PatrolRecord, null=True, blank=True, on_delete=models.SET_NULL, related_name="live_state_updates")
+
+    class Meta:
+        ordering = ["-last_seen_at"]
+
+
 class PatrolException(TimeStampedModel):
     class ExceptionType(models.TextChoices):
         MISSED_CHECKPOINT = "missed_checkpoint", "Missed Checkpoint"

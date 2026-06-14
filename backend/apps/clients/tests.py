@@ -36,7 +36,7 @@ class ClientPermissionAuditTests(APITestCase):
         response = self.client.get(reverse("client-list"))
 
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.data[0]["code"], "client-one")
+        self.assertEqual(response.data["results"][0]["code"], "client-one")
 
     def test_manage_permission_can_create_client_and_writes_audit_log(self):
         self.authenticate(self.admin_user)

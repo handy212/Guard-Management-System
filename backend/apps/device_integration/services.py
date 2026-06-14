@@ -6,10 +6,25 @@ from django.utils import timezone
 from .gateways import DeviceCommandResult, get_patrol_device_gateway
 
 
+def _resolve_pending_records(
+    *,
+    is_fake_gateway: bool,
+    records_result_payload: dict,
+    metadata: dict,
+) -> list:
+    pending_records = records_result_payload.get("records")
+    if pending_records is None:
+        return metadata.get("pending_records", []) if is_fake_gateway else []
+    if is_fake_gateway and not pending_records:
+        return metadata.get("pending_records", [])
+    return pending_records
+
+
 def sync_patrol_device(device: PatrolDevice, *, clear_device_after_sync: bool = True) -> dict:
     gateway = get_patrol_device_gateway()
     metadata = dict(device.sdk_metadata or {})
     is_fake_gateway = gateway.__class__.__name__ == "FakePatrolDeviceGateway"
+    imported = {"imported_count": 0, "duplicate_count": 0, "record_ids": [], "evaluated_assignments": []}
 
     open_result = gateway.open_device()
     records_result = DeviceCommandResult(False, code=-1, message="Device connection was not opened.")
@@ -22,9 +37,11 @@ def sync_patrol_device(device: PatrolDevice, *, clear_device_after_sync: bool = 
                 encrypted=0,
             )
 
-        pending_records = records_result.payload.get("records")
-        if pending_records is None or (is_fake_gateway and not pending_records):
-            pending_records = metadata.get("pending_records", [])
+        pending_records = _resolve_pending_records(
+            is_fake_gateway=is_fake_gateway,
+            records_result_payload=records_result.payload,
+            metadata=metadata,
+        )
 
         imported = import_patrol_records(
             pending_records,

@@ -1,6 +1,9 @@
 from datetime import timedelta
+import json
+from unittest.mock import patch
 
 from django.contrib.auth import get_user_model
+from django.test import override_settings
 from django.urls import reverse
 from django.utils import timezone
 from rest_framework.authtoken.models import Token
@@ -14,6 +17,20 @@ from apps.patrols.models import Checkpoint, PatrolException, PatrolRecord, Patro
 from apps.patrols.services import evaluate_assignment_patrol
 from apps.shifts.models import GuardAssignment, Shift
 from apps.sites.models import Site
+
+
+class _AdapterHttpResponse:
+    def __init__(self, payload: dict):
+        self.payload = json.dumps(payload).encode("utf-8")
+
+    def read(self):
+        return self.payload
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc, tb):
+        return False
 
 
 class PatrolEvaluationTests(APITestCase):
@@ -150,6 +167,7 @@ class PatrolImportTests(APITestCase):
         self.assertEqual(second_response.data["duplicate_count"], 1)
         self.assertEqual(PatrolRecord.objects.count(), 1)
 
+    @override_settings(DEVICE_GATEWAY="fake")
     def test_device_sync_imports_pending_records(self):
         self.device.sdk_metadata = {
             "pending_records": [
@@ -178,6 +196,61 @@ class PatrolImportTests(APITestCase):
         self.device.refresh_from_db()
         self.assertEqual(self.device.sdk_metadata["pending_records"], [])
 
+    @override_settings(DEVICE_GATEWAY="sdk")
+    @patch("apps.device_integration.gateways.request.urlopen")
+    def test_device_sync_imports_records_from_adapter(self, mock_urlopen):
+        record_payload = {
+            "device_number": self.device.device_number,
+            "guard_card_number": self.guard.card_number,
+            "route_code": self.route.code,
+            "checkpoint_code": self.checkpoint_one.code,
+            "source_record_id": "adapter-sync-1",
+            "occurred_at": self.shift.starts_at.isoformat(),
+        }
+
+        def adapter_response(request, timeout=None):
+            body = json.loads(request.data.decode("utf-8"))
+            if body["command"] == "OpenDevice":
+                payload = {"success": True, "code": 0, "message": "ok", "payload": {"opened": True}}
+            elif body["command"] == "GetRecords":
+                payload = {
+                    "success": True,
+                    "code": 0,
+                    "message": "ok",
+                    "payload": {"filename": body["payload"]["filename"], "encrypted": 0, "records": [record_payload]},
+                }
+            elif body["command"] == "ClearRecords":
+                payload = {"success": True, "code": 0, "message": "ok", "payload": {"cleared": True}}
+            else:
+                payload = {"success": True, "code": 0, "message": "ok", "payload": {"closed": True}}
+            return _AdapterHttpResponse(payload)
+
+        mock_urlopen.side_effect = adapter_response
+
+        self.device.sdk_metadata = {
+            "pending_records": [
+                {
+                    "device_number": self.device.device_number,
+                    "source_record_id": "metadata-only",
+                    "occurred_at": self.shift.starts_at.isoformat(),
+                }
+            ]
+        }
+        self.device.save(update_fields=["sdk_metadata", "updated_at"])
+
+        response = self.client.post(
+            reverse("patroldevice-sync", kwargs={"pk": self.device.id}),
+            {"clear_device_after_sync": True},
+            format="json",
+        )
+
+        self.assertEqual(response.status_code, 202)
+        self.assertEqual(response.data["import"]["imported_count"], 1)
+        self.assertEqual(response.data["records_result"]["payload"]["records"][0]["source_record_id"], "adapter-sync-1")
+        self.device.refresh_from_db()
+        self.assertEqual(self.device.sdk_metadata["last_sync_result"]["device_gateway"], "sdk")
+
+    @override_settings(DEVICE_GATEWAY="fake")
     def test_device_sync_placeholder_route_still_works(self):
         self.device.sdk_metadata = {
             "pending_records": [
@@ -329,5 +402,5 @@ class PatrolReadScopingTests(APITestCase):
 
         self.assertEqual(record_response.status_code, 200)
         self.assertEqual(exception_response.status_code, 200)
-        self.assertEqual([row["id"] for row in record_response.data], [self.own_record.id])
-        self.assertEqual([row["id"] for row in exception_response.data], [self.own_exception.id])
+        self.assertEqual([row["id"] for row in record_response.data["results"]], [self.own_record.id])
+        self.assertEqual([row["id"] for row in exception_response.data["results"]], [self.own_exception.id])

@@ -1,5 +1,6 @@
 import React from "react";
 import { GenericRecord } from "../api";
+import { StatusBadge } from "../components/ui";
 import { formatDate, formatUnknown, humanize } from "../lib/format";
 import { PageContext } from "../types/ui";
 
@@ -387,7 +388,7 @@ export const crudConfigs = {
     endpoint: "/devices/",
     eyebrow: "Patrol",
     title: "Device inventory",
-    helper: "Manage patrol hardware registration, status, and syncing attributes.",
+    helper: "Register patrol hardware, run USB sync when docked, and push GPRS/TCP settings for live uploads.",
     emptyMessage: "No devices available.",
     createLabel: "New Device",
     fields: [
@@ -396,16 +397,18 @@ export const crudConfigs = {
       {name: "device_number", label: "Device number", kind: "text", required: true, section: "Registration"},
       {name: "imei", label: "IMEI", kind: "text", section: "Identity"},
       {name: "serial_number", label: "Serial number", kind: "text", section: "Identity"},
-      {name: "connection_mode", label: "Connection mode", kind: "select", required: true, options: statusOptions(["usb", "tcp"]), section: "Connectivity"},
+      {name: "connection_mode", label: "Connection mode", kind: "select", required: true, options: statusOptions(["usb", "tcp"]), section: "Connectivity", description: "USB for docked sync; TCP when the device primarily pushes over GPRS."},
       {name: "status", label: "Status", kind: "select", required: true, options: statusOptions(["registered", "active", "inactive", "maintenance"]), section: "Connectivity"},
-      {name: "last_synced_at", label: "Last synced", kind: "datetime", allowBlank: true, section: "Connectivity"},
-      {name: "sdk_metadata", label: "SDK metadata", kind: "json", section: "Advanced", fullWidth: true},
+      {name: "last_synced_at", label: "Last synced", kind: "datetime", allowBlank: true, section: "Connectivity", description: "Updated after a successful USB sync from the Devices table."},
+      {name: "sdk_metadata", label: "SDK metadata", kind: "json", section: "Advanced", fullWidth: true, description: "Stores last sync result, network config, and dial parameters from device operations."},
     ],
     columns: [
       {label: "Device", render: (row) => <strong>{String(row.name ?? "-")}</strong>},
       {label: "Device no.", render: (row) => formatUnknown(row.device_number)},
       {label: "Site", render: (row, context) => relatedLabel(siteOptions(context), row.site)},
+      {label: "Mode", render: (row) => humanize(String(row.connection_mode ?? ""))},
       {label: "Status", render: (row) => humanize(String(row.status ?? ""))},
+      {label: "Last sync", render: (row) => row.last_synced_at ? formatDate(String(row.last_synced_at)) : "—"},
     ],
   },
   checkpoints: {
@@ -478,7 +481,7 @@ export const crudConfigs = {
     endpoint: "/patrol-records/",
     eyebrow: "Patrol",
     title: "Patrol records",
-    helper: "Manage synced or imported patrol events.",
+    helper: "USB sync, GPRS/TCP push, and manual imports appear here with their source channel.",
     emptyMessage: "No patrol records available.",
     createLabel: "New Record",
     fields: [
@@ -505,7 +508,8 @@ export const crudConfigs = {
       {label: "Occurred", render: (row) => row.occurred_at ? formatDate(String(row.occurred_at)) : "-"},
       {label: "Guard", render: (row, context) => relatedLabel(guardOptions(context), row.guard)},
       {label: "Checkpoint", render: (row, context) => relatedLabel(checkpointOptions(context), row.checkpoint)},
-      {label: "Source", render: (row) => humanize(String(row.source ?? ""))},
+      {label: "Device", render: (row) => formatUnknown(row.device_number)},
+      {label: "Source", render: (row) => <StatusBadge value={String(row.source ?? "manual_import")} />},
     ],
   },
   patrolExceptions: {

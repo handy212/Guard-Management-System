@@ -60,6 +60,15 @@ class PatrolRecordViewSet(AuditLogMixin, viewsets.ModelViewSet):
             default_source=serializer.validated_data["source"],
             default_device=device,
         )
+        if device:
+            self.audit_action(
+                "import_records",
+                device,
+                extra_metadata={
+                    "imported_count": result.get("imported_count"),
+                    "duplicate_count": result.get("duplicate_count"),
+                },
+            )
         return Response({"status": "completed", **result}, status=status.HTTP_201_CREATED)
 
 

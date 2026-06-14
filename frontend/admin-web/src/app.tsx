@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { login, logout, fetchCurrentUser, fetchDashboardSummary, fetchOperationsOverview, fetchSetupData, fetchSupportData, downloadReport } from "./api";
-import { AppSidebar, WorkspaceHeader } from "./components/layout";
-import { getRouteFromHash, isCreateRoute, setHashRoute } from "./lib/routing";
+import { AppSidebar, PageHeader } from "./components/layout";
+import { CommandPalette, useCommandPaletteShortcut } from "./components/command-palette";
+import { getRouteFromHash, setHashRoute } from "./lib/routing";
+import { getStoredTheme, toggleTheme, type ThemeMode } from "./lib/theme";
 import { getPageMeta, renderRoute } from "./pages";
-import { PageContext, RouteKey } from "./types/ui";
+import { PageContext, RecordFocus, RouteKey } from "./types/ui";
 
 export function App() {
   const [token, setToken] = useState(() => localStorage.getItem("guard_admin_token") ?? "");
@@ -19,6 +21,16 @@ export function App() {
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [commandOpen, setCommandOpen] = useState(false);
+  const [commandPaletteKey, setCommandPaletteKey] = useState(0);
+  const [theme, setTheme] = useState<ThemeMode>(() => getStoredTheme());
+  const [recordFocus, setRecordFocus] = useState<RecordFocus | null>(null);
+
+  const openCommandPalette = useCallback(() => {
+    setCommandPaletteKey((key) => key + 1);
+    setCommandOpen(true);
+  }, []);
+  useCommandPaletteShortcut(openCommandPalette);
 
   useEffect(() => {
     const handleHashChange = () => setRoute(getRouteFromHash());
@@ -128,30 +140,28 @@ export function App() {
     }
   }
 
-  function navigate(nextRoute: RouteKey) {
+  function navigate(nextRoute: RouteKey, focus: RecordFocus | null = null) {
     setHashRoute(nextRoute);
+    setRoute(nextRoute);
+    setRecordFocus(focus);
     setMessage("");
+  }
+
+  function clearRecordFocus() {
+    setRecordFocus(null);
+  }
+
+  function handleToggleTheme() {
+    setTheme(toggleTheme());
   }
 
   if (!token) {
     return (
       <main className="login-shell">
-        <section className="login-hero">
-          <div className="eyebrow">Enterprise Guard Management</div>
-          <h1>Compact operations control for sites, patrols, incidents, and reporting.</h1>
-          <p className="login-copy">
-            Built for staffing-heavy teams that need clear deployment status, dependable patrol visibility, and a clean
-            command surface without dashboard clutter.
-          </p>
-          <div className="login-points">
-            <div className="mini-stat"><strong>Live</strong><span>Patrol monitoring</span></div>
-            <div className="mini-stat"><strong>Dense</strong><span>Table-first views</span></div>
-            <div className="mini-stat"><strong>Secure</strong><span>Token-based internal access</span></div>
-          </div>
-        </section>
         <form className="login-panel" onSubmit={handleLogin}>
-          <p className="eyebrow">Admin Sign In</p>
-          <h2>Operations Console</h2>
+          <p className="eyebrow">Internal access</p>
+          <h2>GuardOps Console</h2>
+          <p className="subtle">Sign in to manage sites, patrols, incidents, and reports.</p>
           <label>
             Username
             <input value={loginForm.username} onChange={(event) => setLoginForm({...loginForm, username: event.target.value})} autoComplete="username" />
@@ -162,15 +172,14 @@ export function App() {
           </label>
           {loginError ? <div className="error-banner">{loginError}</div> : null}
           <button type="submit" className="primary-button" disabled={isSubmitting}>
-            {isSubmitting ? "Signing in..." : "Sign In"}
+            {isSubmitting ? "Signing in..." : "Sign in"}
           </button>
-          <p className="helper-copy">Use the seeded internal admin account in local development.</p>
         </form>
       </main>
     );
   }
 
-  const { currentNavItem } = getPageMeta(route);
+  const {pageTitle, pageDescription} = getPageMeta(route);
   const context: PageContext = {
     user,
     overview,
@@ -183,6 +192,8 @@ export function App() {
     isSubmitting,
     isLoading,
     navigate,
+    recordFocus,
+    clearRecordFocus,
     refreshAll,
     handleLogout,
     runAction,
@@ -191,20 +202,25 @@ export function App() {
 
   return (
     <div className="app-layout">
-      <AppSidebar route={route} navigate={navigate} />
+      <AppSidebar route={route} navigate={navigate} userName={user?.first_name ? `${user.first_name} ${user.last_name}`.trim() : user?.username} />
       <main className="workspace">
-        <WorkspaceHeader
-          route={route}
-          contextSummary={null}
-          isCreatePage={isCreateRoute(route)}
+        <PageHeader
+          title={pageTitle}
+          description={pageDescription}
+          theme={theme}
+          onOpenCommandPalette={openCommandPalette}
+          onToggleTheme={handleToggleTheme}
           onRefresh={() => { void refreshAll(); }}
           onLogout={() => { void handleLogout(); }}
-          onAction={() => {
-            if (currentNavItem.actionRoute) {
-              navigate(currentNavItem.actionRoute);
-            }
-          }}
           isLoading={isLoading}
+        />
+
+        <CommandPalette
+          key={commandPaletteKey}
+          open={commandOpen}
+          onClose={() => setCommandOpen(false)}
+          context={context}
+          onNavigate={navigate}
         />
 
         {error ? <div className="error-banner">{error}</div> : null}

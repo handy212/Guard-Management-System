@@ -43,4 +43,4 @@ class ClientComplaintScopingTests(APITestCase):
         response = self.client.get(reverse("clientcomplaint-list"))
 
         self.assertEqual(response.status_code, 200)
-        self.assertEqual([row["id"] for row in response.data], [self.own_complaint.id])
+        self.assertEqual([row["id"] for row in response.data["results"]], [self.own_complaint.id])

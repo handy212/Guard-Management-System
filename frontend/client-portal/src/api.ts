@@ -1,3 +1,5 @@
+import {APIError, login as sharedLogin, logout as sharedLogout, request} from "@guard/shared";
+
 export type CurrentUser = {
   id: number;
   username: string;
@@ -129,27 +131,10 @@ export type ReportRequestInput = {
   date_to?: string;
 };
 
-export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? "http://127.0.0.1:8000/api/v1";
-
-async function request<T>(path: string, options: RequestInit = {}, token = ""): Promise<T> {
-  const headers = new Headers(options.headers ?? {});
-  headers.set("Content-Type", "application/json");
-  if (token) {
-    headers.set("Authorization", `Token ${token}`);
-  }
-
-  const response = await fetch(`${API_BASE_URL}${path}`, {...options, headers});
-  if (!response.ok) {
-    throw new Error(`API request failed with ${response.status}`);
-  }
-  return response.json();
-}
+export {APIError};
 
 export function login(username: string, password: string): Promise<LoginResponse> {
-  return request<LoginResponse>("/auth/login/", {
-    method: "POST",
-    body: JSON.stringify({username, password}),
-  });
+  return sharedLogin(username, password) as Promise<LoginResponse>;
 }
 
 export function fetchClientPortalOverview(token: string): Promise<ClientPortalOverview> {
@@ -178,14 +163,8 @@ export function requestReport(input: ReportRequestInput, token: string): Promise
   );
 }
 
-export async function logout(token: string): Promise<void> {
-  const response = await fetch(`${API_BASE_URL}/auth/logout/`, {
-    method: "POST",
-    headers: {
-      Authorization: `Token ${token}`,
-    },
-  });
-  if (!response.ok && response.status !== 204) {
-    throw new Error(`Logout failed with ${response.status}`);
-  }
+export function logout(token: string): Promise<void> {
+  return sharedLogout(token);
 }
+
+export {formatDate, humanize} from "@guard/shared";

@@ -31,6 +31,7 @@ class ReportRequestViewSet(AuditLogMixin, viewsets.ModelViewSet):
     def generate(self, request, pk=None):
         report_request = self.get_object()
         summary = generate_report_summary(report_request)
+        self.audit_action("generate", report_request, extra_metadata={"status": report_request.status})
         return Response({"report_request": report_request.id, "status": report_request.status, "summary": summary})
 
     @action(detail=True, methods=["get"], url_path="export")

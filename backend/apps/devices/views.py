@@ -28,6 +28,14 @@ class PatrolDeviceViewSet(AuditLogMixin, viewsets.ModelViewSet):
             device,
             clear_device_after_sync=serializer.validated_data["clear_device_after_sync"],
         )
+        self.audit_action(
+            "sync",
+            device,
+            extra_metadata={
+                "clear_device_after_sync": serializer.validated_data["clear_device_after_sync"],
+                "imported_count": result.get("import", {}).get("imported_count"),
+            },
+        )
         return Response(result, status=status.HTTP_202_ACCEPTED)
 
     @action(detail=True, methods=["post"], url_path="sync-placeholder")
@@ -40,6 +48,7 @@ class PatrolDeviceViewSet(AuditLogMixin, viewsets.ModelViewSet):
         serializer = PatrolDeviceNetworkConfigSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         result = configure_patrol_device_network(device, validated_data=serializer.validated_data)
+        self.audit_action("configure_network", device, extra_metadata={"mode": serializer.validated_data.get("mode")})
         return Response(result, status=status.HTTP_200_OK)
 
     @action(detail=True, methods=["post"], url_path="configure-network-placeholder")

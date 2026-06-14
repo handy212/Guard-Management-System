@@ -1,34 +1,34 @@
 import React, { useState } from "react";
 import { GenericRecord } from "../../api";
-import { stringifyRecord } from "../../lib/format";
-import { FilterBar, GenericRecordTable } from "../../components/ui";
+import { DataTable, FilterBar, Panel } from "../../components/ui";
+import { formatUnknown, humanize, stringifyRecord } from "../../lib/format";
 
 type GenericSearchPageProps = {
   title: string;
-  eyebrow: string;
   rows: GenericRecord[];
   emptyMessage: string;
   fields: string[];
-  helper: string;
   placeholder?: string;
 };
 
-export function GenericSearchPage({
-  title,
-  eyebrow,
-  rows,
-  emptyMessage,
-  fields,
-  helper,
-  placeholder,
-}: GenericSearchPageProps) {
+export function GenericSearchPage({title, rows, emptyMessage, fields, placeholder}: GenericSearchPageProps) {
   const [query, setQuery] = useState("");
   const filteredRows = rows.filter((item) => stringifyRecord(item).includes(query.toLowerCase()));
 
+  const columns = fields.map((field) => ({
+    label: humanize(field),
+    render: (row: GenericRecord) => formatUnknown(row[field]),
+  }));
+
   return (
     <div className="page-stack">
-      <FilterBar query={query} setQuery={setQuery} placeholder={placeholder ?? `Search ${title.toLowerCase()}`} helper={helper} />
-      <GenericRecordTable eyebrow={eyebrow} title={title} rows={filteredRows} emptyMessage={emptyMessage} fields={fields} />
+      <Panel title={title}>
+        <div className="resource-toolbar">
+          <FilterBar query={query} setQuery={setQuery} placeholder={placeholder ?? `Filter ${title.toLowerCase()}…`} />
+          <span className="resource-toolbar-meta">{filteredRows.length} shown</span>
+        </div>
+        <DataTable columns={columns} rows={filteredRows} emptyMessage={emptyMessage} />
+      </Panel>
     </div>
   );
 }

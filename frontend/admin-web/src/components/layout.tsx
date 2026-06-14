@@ -1,29 +1,28 @@
 import React from "react";
-import { Bell, ChevronRight, Plus, Search, Settings, Sidebar, SunMedium } from "lucide-react";
-import { NAV_ITEMS, groupNavItems } from "../navigation/config";
+import { Moon, RefreshCw, Search, SunMedium } from "lucide-react";
+import { groupNavItems } from "../navigation/config";
+import { ThemeMode } from "../lib/theme";
 import { RouteKey } from "../types/ui";
 
 export function AppSidebar({
   route,
   navigate,
+  userName,
 }: {
   route: RouteKey;
   navigate: (route: RouteKey) => void;
+  userName?: string;
 }) {
   return (
     <aside className="sidebar">
-      <div className="sidebar-top">
-        <button type="button" className="sidebar-icon-button" aria-label="Collapse navigation">
-          <Sidebar size={16} />
-        </button>
-        <div className="brand-block">
-          <div className="brand-mark">GM</div>
-          <div>
-            <p className="eyebrow">Guard Console</p>
-            <h2>Operations HQ</h2>
-          </div>
+      <div className="sidebar-brand">
+        <div className="brand-mark">G</div>
+        <div className="brand-copy">
+          <strong>GuardOps</strong>
+          <span>Control room</span>
         </div>
       </div>
+
       {groupNavItems().map(([group, items]) => (
         <nav key={group} className="nav-group">
           <p className="nav-label">{group}</p>
@@ -31,88 +30,79 @@ export function AppSidebar({
             const Icon = item.icon;
             const active = route === item.route || route.startsWith(`${item.route}/`);
             return (
-              <button key={item.route} type="button" className={`nav-item ${active ? "active" : ""}`} onClick={() => navigate(item.route)}>
-                <Icon size={16} />
+              <button
+                key={item.route}
+                type="button"
+                className={`nav-item ${active ? "active" : ""}`}
+                onClick={() => navigate(item.route)}
+              >
+                <Icon size={15} />
                 <span className="nav-item-label">{item.label}</span>
-                <ChevronRight size={14} />
               </button>
             );
           })}
         </nav>
       ))}
-      <div className="sidebar-help">
-        <span className="sidebar-help-label">Internal support</span>
-        <strong>Operations and compliance workspace</strong>
-      </div>
+
+      {userName ? (
+        <div className="sidebar-user">
+          <span className="sidebar-user-dot" />
+          <span className="sidebar-user-name">{userName}</span>
+        </div>
+      ) : null}
     </aside>
   );
 }
 
-export function WorkspaceHeader({
-  route,
-  contextSummary,
-  isCreatePage,
+function commandShortcutLabel() {
+  if (typeof navigator !== "undefined" && /Mac|iPhone|iPod|iPad/i.test(navigator.platform)) {
+    return "⌘K";
+  }
+  return "Ctrl+K";
+}
+
+export function PageHeader({
+  title,
+  description,
+  isLoading,
+  theme,
+  onOpenCommandPalette,
+  onToggleTheme,
   onRefresh,
   onLogout,
-  onAction,
-  isLoading,
 }: {
-  route: RouteKey;
-  contextSummary: React.ReactNode;
-  isCreatePage: boolean;
+  title: string;
+  description: string;
+  isLoading: boolean;
+  theme: ThemeMode;
+  onOpenCommandPalette: () => void;
+  onToggleTheme: () => void;
   onRefresh: () => void;
   onLogout: () => void;
-  onAction: () => void;
-  isLoading: boolean;
 }) {
-  const currentNavItem = NAV_ITEMS.find((item) => route === item.route || route.startsWith(`${item.route}/`));
-
   return (
-    <section className="workspace-shell-header">
-      <div className="utilitybar">
-        <div className="utilitybar-company">
-          <div className="brand-mark small">GM</div>
-          <strong>Guard Management System</strong>
-        </div>
-        <div className="utilitybar-search">
-          <Search size={16} />
-          <input type="text" value="" readOnly placeholder="Search modules, records, or sites..." aria-label="Global search" />
-          <span className="search-shortcut">CTRL K</span>
-        </div>
-        <div className="utilitybar-actions">
-          <button type="button" className="toolbar-icon-button" aria-label="Create quick action">
-            <Plus size={16} />
-          </button>
-          <button type="button" className="toolbar-icon-button" aria-label="Notifications">
-            <Bell size={16} />
-          </button>
-          <button type="button" className="toolbar-icon-button" aria-label="Appearance">
-            <SunMedium size={16} />
-          </button>
-          <button type="button" className="toolbar-icon-button" aria-label="Preferences">
-            <Settings size={16} />
-          </button>
-        </div>
+    <header className="page-header">
+      <div className="page-header-copy">
+        <h1>{title}</h1>
+        <p className="subtle">{description}</p>
       </div>
-
-      <header className="topbar">
-        <div className="topbar-actions">
-          <span className="workspace-badge">{currentNavItem?.group ?? "Workspace"}</span>
-          <span className="topbar-status">{isLoading ? "Refreshing now" : "Live workspace"}</span>
-          {currentNavItem?.actionRoute && !isCreatePage ? (
-            <button type="button" className="primary-button" onClick={onAction}>
-              {currentNavItem.actionLabel ?? "Create"}
-            </button>
-          ) : null}
-          <button type="button" className="secondary-button" onClick={onRefresh} disabled={isLoading}>
-            {isLoading ? "Refreshing..." : "Refresh"}
-          </button>
-          <button type="button" className="secondary-button" onClick={onLogout}>
-            Sign Out
-          </button>
-        </div>
-      </header>
-      {contextSummary ? <div className="context-strip">{contextSummary}</div> : null}
-    </section>
+      <div className="page-header-actions">
+        <button type="button" className="ghost-button command-trigger" onClick={onOpenCommandPalette}>
+          <Search size={14} />
+          Search
+          <kbd className="command-kbd">{commandShortcutLabel()}</kbd>
+        </button>
+        <button type="button" className="ghost-button icon-button" onClick={onToggleTheme} title="Toggle theme">
+          {theme === "dark" ? <SunMedium size={14} /> : <Moon size={14} />}
+        </button>
+        <button type="button" className="ghost-button" onClick={onRefresh} disabled={isLoading} title="Refresh data">
+          <RefreshCw size={14} className={isLoading ? "spin" : undefined} />
+          {isLoading ? "Syncing" : "Refresh"}
+        </button>
+        <button type="button" className="ghost-button" onClick={onLogout}>
+          Sign out
+        </button>
+      </div>
+    </header>
   );
 }

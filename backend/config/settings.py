@@ -15,6 +15,7 @@ ALLOWED_HOSTS = [
 ]
 
 INSTALLED_APPS = [
+    "daphne",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -71,6 +72,13 @@ TEMPLATES = [
 WSGI_APPLICATION = "config.wsgi.application"
 ASGI_APPLICATION = "config.asgi.application"
 
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer",
+    }
+}
+ASGI_APPLICATION = "config.asgi.application"
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
@@ -100,13 +108,15 @@ AUTH_USER_MODEL = "accounts.User"
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
-        "rest_framework.authentication.TokenAuthentication",
+        "apps.core.authentication.ExpiringTokenAuthentication",
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.BasicAuthentication",
     ],
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.IsAuthenticatedOrReadOnly",
     ],
+    "DEFAULT_PAGINATION_CLASS": "apps.core.pagination.StandardResultsSetPagination",
+    "PAGE_SIZE": 25,
 }
 
 CORS_ALLOWED_ORIGINS = [
@@ -124,3 +134,18 @@ DEVICE_GATEWAY = os.getenv("DEVICE_GATEWAY", "fake")
 DEVICE_ADAPTER_BASE_URL = os.getenv("DEVICE_ADAPTER_BASE_URL", "http://127.0.0.1:8050/api/v1/device-adapter")
 DEVICE_ADAPTER_API_TOKEN = os.getenv("DEVICE_ADAPTER_API_TOKEN", "")
 DEVICE_ADAPTER_TIMEOUT_SECONDS = int(os.getenv("DEVICE_ADAPTER_TIMEOUT_SECONDS", "10"))
+PATROL_INGEST_API_TOKEN = os.getenv("PATROL_INGEST_API_TOKEN", "")
+LIVE_MONITORING_STALE_SECONDS = int(os.getenv("LIVE_MONITORING_STALE_SECONDS", "900"))
+LIVE_MONITORING_RECENT_SCAN_LIMIT = int(os.getenv("LIVE_MONITORING_RECENT_SCAN_LIMIT", "30"))
+LIVE_MONITORING_RECENT_SCAN_HOURS = int(os.getenv("LIVE_MONITORING_RECENT_SCAN_HOURS", "24"))
+LIVE_MONITORING_SCAN_HIGHLIGHT_SECONDS = int(os.getenv("LIVE_MONITORING_SCAN_HIGHLIGHT_SECONDS", "3600"))
+AUTH_TOKEN_TTL_SECONDS = int(os.getenv("AUTH_TOKEN_TTL_SECONDS", str(60 * 60 * 24 * 7)))
+
+DJANGO_ENV = os.getenv("DJANGO_ENV", "development")
+if DJANGO_ENV == "production":
+    SECURE_SSL_REDIRECT = os.getenv("DJANGO_SECURE_SSL_REDIRECT", "true").lower() == "true"
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_HSTS_SECONDS = int(os.getenv("DJANGO_SECURE_HSTS_SECONDS", "31536000"))
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")

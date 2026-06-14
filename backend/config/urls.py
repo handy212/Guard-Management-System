@@ -14,8 +14,10 @@ from apps.dashboard.views import (
     ClientPortalReportRequestCreateView,
     ClientPortalSummaryView,
     DashboardSummaryView,
+    LiveMonitoringView,
     OperationsOverviewView,
 )
+from apps.device_integration.views import PatrolRecordIngestView
 from apps.devices.views import PatrolDeviceViewSet
 from apps.guards.views import (
     DisciplinaryRecordViewSet,
@@ -79,10 +81,12 @@ urlpatterns = [
     path("api/v1/auth/me/", AuthMeView.as_view(), name="auth-me"),
     path("api/v1/dashboard/summary/", DashboardSummaryView.as_view(), name="dashboard-summary"),
     path("api/v1/dashboard/operations/", OperationsOverviewView.as_view(), name="dashboard-operations"),
+    path("api/v1/monitoring/live/", LiveMonitoringView.as_view(), name="monitoring-live"),
     path("api/v1/client-portal/summary/", ClientPortalSummaryView.as_view(), name="client-portal-summary"),
     path("api/v1/client-portal/overview/", ClientPortalOverviewView.as_view(), name="client-portal-overview"),
     path("api/v1/client-portal/complaints/", ClientPortalComplaintCreateView.as_view(), name="client-portal-complaints"),
     path("api/v1/client-portal/report-requests/", ClientPortalReportRequestCreateView.as_view(), name="client-portal-report-requests"),
+    path("api/v1/device-ingest/patrol-records/", PatrolRecordIngestView.as_view(), name="patrol-record-ingest"),
     path("api/v1/health/", include("apps.core.urls")),
 ]
 

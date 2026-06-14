@@ -1,4 +1,5 @@
 from datetime import timedelta
+from decimal import Decimal
 
 from django.db import IntegrityError
 
@@ -137,7 +138,7 @@ def import_patrol_records(records, default_source=PatrolRecord.Source.MANUAL_IMP
             "longitude": item.get("longitude"),
             "speed": item.get("speed"),
             "satellites": item.get("satellites"),
-            "raw_payload": item.get("raw_payload") or _build_raw_payload(item),
+            "raw_payload": _normalize_raw_payload(item.get("raw_payload") or _build_raw_payload(item)),
         }
 
         lookup = {
@@ -269,11 +270,23 @@ def _close_stale_open_exceptions(assignment, touched_exception_keys):
             exception.save(update_fields=["status", "updated_at"])
 
 
+def _json_safe_value(value):
+    if hasattr(value, "isoformat"):
+        return value.isoformat()
+    if isinstance(value, Decimal):
+        return str(value)
+    if isinstance(value, dict):
+        return {key: _json_safe_value(nested) for key, nested in value.items()}
+    if isinstance(value, (list, tuple)):
+        return [_json_safe_value(nested) for nested in value]
+    return value
+
+
+def _normalize_raw_payload(raw_payload):
+    if not isinstance(raw_payload, dict):
+        return {}
+    return {key: _json_safe_value(value) for key, value in raw_payload.items()}
+
+
 def _build_raw_payload(item):
-    raw_payload = {}
-    for key, value in item.items():
-        if hasattr(value, "isoformat"):
-            raw_payload[key] = value.isoformat()
-        else:
-            raw_payload[key] = value
-    return raw_payload
+    return _normalize_raw_payload(item)

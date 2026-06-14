@@ -85,7 +85,7 @@ class ReportRequestApiTests(APITestCase):
         )
 
         self.assertEqual(list_response.status_code, 200)
-        self.assertEqual([row["id"] for row in list_response.data], [own_request.id])
+        self.assertEqual([row["id"] for row in list_response.data["results"]], [own_request.id])
         self.assertEqual(create_response.status_code, 400)
         self.assertIn("client", create_response.data)
 

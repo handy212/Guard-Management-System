@@ -1,11 +1,18 @@
-export type CurrentUser = {
-  id: number;
-  username: string;
-  email: string;
-  first_name: string;
-  last_name: string;
-  role_code: string | null;
-  role_name: string | null;
+import {
+  APIError,
+  extractApiErrorMessage,
+  fetchAllList,
+  fetchPaginatedList,
+  getApiBaseUrl,
+  login as sharedLogin,
+  logout as sharedLogout,
+  request,
+  type GenericRecord,
+  type LoginResponse as SharedLoginResponse,
+  type PaginatedResponse,
+} from "@guard/shared";
+
+export type CurrentUser = SharedLoginResponse["user"] & {
   is_staff: boolean;
 };
 
@@ -194,11 +201,6 @@ export type SetupData = {
   reports: ReportRequestEntity[];
 };
 
-export type GenericRecord = {
-  id: number;
-  [key: string]: unknown;
-};
-
 export type SupportData = {
   contracts: GenericRecord[];
   incidents: GenericRecord[];
@@ -235,75 +237,11 @@ export type ResourceOptions = {
   };
 };
 
-export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? "http://127.0.0.1:8000/api/v1";
-
-export class APIError extends Error {
-  details?: unknown;
-
-  constructor(message: string, details?: unknown) {
-    super(message);
-    this.name = "APIError";
-    this.details = details;
-  }
-}
-
-async function request<T>(path: string, options: RequestInit = {}, token = ""): Promise<T> {
-  const headers = new Headers(options.headers ?? {});
-  if (!(options.body instanceof FormData)) {
-    headers.set("Content-Type", "application/json");
-  }
-  if (token) {
-    headers.set("Authorization", `Token ${token}`);
-  }
-
-  const response = await fetch(`${API_BASE_URL}${path}`, {...options, headers});
-  if (!response.ok) {
-    let details: unknown = null;
-    try {
-      details = await response.json();
-    } catch {
-      details = null;
-    }
-    throw new APIError(extractApiErrorMessage(response.status, details), details);
-  }
-  return response.json();
-}
-
-function extractApiErrorMessage(status: number, details: unknown) {
-  if (typeof details === "string" && details.trim()) {
-    return details;
-  }
-  if (details && typeof details === "object") {
-    const values = Object.values(details as Record<string, unknown>).flatMap((value) =>
-      Array.isArray(value) ? value.map(String) : [String(value)],
-    );
-    if (values.length) {
-      return values.join(" ");
-    }
-  }
-  return `API request failed with ${status}`;
-}
-
-function listRequest<T>(path: string, token: string): Promise<T[]> {
-  return request<T[]>(path, {}, token);
-}
-
-function createRequest<T>(path: string, payload: Record<string, unknown>, token: string): Promise<T> {
-  return request<T>(
-    path,
-    {
-      method: "POST",
-      body: JSON.stringify(payload),
-    },
-    token,
-  );
-}
+export {APIError, type GenericRecord, type PaginatedResponse};
+export const API_BASE_URL = getApiBaseUrl();
 
 export function login(username: string, password: string): Promise<LoginResponse> {
-  return request<LoginResponse>("/auth/login/", {
-    method: "POST",
-    body: JSON.stringify({username, password}),
-  });
+  return sharedLogin(username, password) as Promise<LoginResponse>;
 }
 
 export function fetchCurrentUser(token: string): Promise<CurrentUser> {
@@ -318,16 +256,88 @@ export function fetchOperationsOverview(token: string): Promise<OperationsOvervi
   return request<OperationsOverview>("/dashboard/operations/", {}, token);
 }
 
+export type LiveGuardPosition = {
+  device_id: number;
+  device_name: string;
+  device_number: string;
+  guard_id: number | null;
+  guard_name: string;
+  assignment_id: number | null;
+  site_id: number | null;
+  site_name: string;
+  latitude: string | null;
+  longitude: string | null;
+  speed: string | null;
+  satellites: number | null;
+  last_seen_at: string;
+  last_record_type: string;
+  is_stale: boolean;
+  last_checkpoint_id: number | null;
+  last_checkpoint_code: string;
+  last_checkpoint_name: string;
+  last_checkpoint_at: string | null;
+};
+
+export type LiveScanEvent = {
+  id: number;
+  occurred_at: string;
+  guard_id: number | null;
+  guard_name: string;
+  checkpoint_id: number | null;
+  checkpoint_name: string;
+  checkpoint_code: string;
+  device_number: string;
+  source: string;
+  record_type: string;
+  latitude: string | null;
+  longitude: string | null;
+};
+
+export type LiveCheckpointMarker = {
+  id: number;
+  site_id: number;
+  site_name: string;
+  code: string;
+  name: string;
+  kind: string;
+  latitude: string | null;
+  longitude: string | null;
+  recently_scanned: boolean;
+};
+
+export type LiveMonitoringSnapshot = {
+  generated_at: string;
+  stale_after_seconds: number;
+  site_id: number | null;
+  guards: LiveGuardPosition[];
+  recent_scans: LiveScanEvent[];
+  checkpoints: LiveCheckpointMarker[];
+};
+
+export type LiveMonitoringUpdate = {
+  type: "live_update";
+  generated_at: string;
+  site_ids: number[];
+  scan: LiveScanEvent;
+  guard: LiveGuardPosition | null;
+  checkpoint: LiveCheckpointMarker | null;
+};
+
+export function fetchLiveMonitoring(token: string, siteId?: number | null): Promise<LiveMonitoringSnapshot> {
+  const query = siteId ? `?site_id=${siteId}` : "";
+  return request<LiveMonitoringSnapshot>(`/monitoring/live/${query}`, {}, token);
+}
+
 export async function fetchSetupData(token: string): Promise<SetupData> {
   const [clients, sites, guards, devices, checkpoints, routes, shifts, reports] = await Promise.all([
-    listRequest<ClientEntity>("/clients/", token),
-    listRequest<SiteEntity>("/sites/", token),
-    listRequest<GuardEntity>("/guards/", token),
-    listRequest<DeviceEntity>("/devices/", token),
-    listRequest<CheckpointEntity>("/checkpoints/", token),
-    listRequest<RouteEntity>("/patrol-routes/", token),
-    listRequest<ShiftEntity>("/shifts/", token),
-    listRequest<ReportRequestEntity>("/report-requests/", token),
+    fetchAllList<ClientEntity>("/clients/", token),
+    fetchAllList<SiteEntity>("/sites/", token),
+    fetchAllList<GuardEntity>("/guards/", token),
+    fetchAllList<DeviceEntity>("/devices/", token),
+    fetchAllList<CheckpointEntity>("/checkpoints/", token),
+    fetchAllList<RouteEntity>("/patrol-routes/", token),
+    fetchAllList<ShiftEntity>("/shifts/", token),
+    fetchAllList<ReportRequestEntity>("/report-requests/", token),
   ]);
 
   return {clients, sites, guards, devices, checkpoints, routes, shifts, reports};
@@ -349,19 +359,19 @@ export async function fetchSupportData(token: string): Promise<SupportData> {
     siteInstructions,
     siteEmergencyContacts,
   ] = await Promise.all([
-    listRequest<GenericRecord>("/client-contracts/", token),
-    listRequest<GenericRecord>("/incidents/", token),
-    listRequest<GenericRecord>("/supervisor-inspections/", token),
-    listRequest<GenericRecord>("/assignments/", token),
-    listRequest<GenericRecord>("/users/", token),
-    listRequest<GenericRecord>("/roles/", token),
-    listRequest<GenericRecord>("/permissions/", token),
-    listRequest<GenericRecord>("/audit-logs/", token),
-    listRequest<GenericRecord>("/company-settings/", token),
-    listRequest<GenericRecord>("/branches/", token),
-    listRequest<GenericRecord>("/departments/", token),
-    listRequest<GenericRecord>("/site-instructions/", token),
-    listRequest<GenericRecord>("/site-emergency-contacts/", token),
+    fetchAllList<GenericRecord>("/client-contracts/", token),
+    fetchAllList<GenericRecord>("/incidents/", token),
+    fetchAllList<GenericRecord>("/supervisor-inspections/", token),
+    fetchAllList<GenericRecord>("/assignments/", token),
+    fetchAllList<GenericRecord>("/users/", token),
+    fetchAllList<GenericRecord>("/roles/", token),
+    fetchAllList<GenericRecord>("/permissions/", token),
+    fetchAllList<GenericRecord>("/audit-logs/", token),
+    fetchAllList<GenericRecord>("/company-settings/", token),
+    fetchAllList<GenericRecord>("/branches/", token),
+    fetchAllList<GenericRecord>("/departments/", token),
+    fetchAllList<GenericRecord>("/site-instructions/", token),
+    fetchAllList<GenericRecord>("/site-emergency-contacts/", token),
   ]);
 
   return {
@@ -386,7 +396,27 @@ function normalizeEndpoint(endpoint: string) {
 }
 
 export function fetchResourceList<T = GenericRecord>(endpoint: string, token: string): Promise<T[]> {
-  return listRequest<T>(normalizeEndpoint(endpoint), token);
+  return fetchAllList<T>(endpoint, token);
+}
+
+export function fetchResourcePage<T = GenericRecord>(
+  endpoint: string,
+  token: string,
+  page = 1,
+  pageSize = 25,
+): Promise<PaginatedResponse<T>> {
+  return fetchPaginatedList<T>(endpoint, token, page, pageSize);
+}
+
+function createRequest<T>(path: string, payload: Record<string, unknown>, token: string): Promise<T> {
+  return request<T>(
+    path,
+    {
+      method: "POST",
+      body: JSON.stringify(payload),
+    },
+    token,
+  );
 }
 
 export function createResource<T = GenericRecord>(endpoint: string, payload: Record<string, unknown>, token: string): Promise<T> {
@@ -448,6 +478,65 @@ export function createDevice(payload: Record<string, unknown>, token: string) {
   return createRequest<DeviceEntity>("/devices/", payload, token);
 }
 
+export type DeviceCommandOutcome = {
+  success: boolean;
+  code: number;
+  message: string;
+  payload?: Record<string, unknown>;
+};
+
+export type DeviceSyncResult = {
+  device: number;
+  open_result: DeviceCommandOutcome;
+  records_result: DeviceCommandOutcome;
+  import: {
+    imported_count: number;
+    duplicate_count: number;
+    record_ids: number[];
+    evaluated_assignments: number[];
+  };
+  clear_result: DeviceCommandOutcome | null;
+  close_result: DeviceCommandOutcome | null;
+};
+
+export type DeviceNetworkConfigPayload = {
+  network_mode?: "ip" | "domain";
+  ip?: string;
+  domain?: string;
+  dns?: string;
+  port: number;
+  apn?: string;
+  userid?: string;
+  password?: string;
+  pin1?: string;
+  pin2?: string;
+};
+
+export type DeviceNetworkConfigResult = {
+  device: number;
+  open_result: DeviceCommandOutcome;
+  config_result: DeviceCommandOutcome;
+  dial_result: DeviceCommandOutcome | null;
+  imei_result: DeviceCommandOutcome | null;
+  close_result: DeviceCommandOutcome | null;
+};
+
+export function syncPatrolDevice(
+  deviceId: number,
+  payload: {clear_device_after_sync?: boolean},
+  token: string,
+): Promise<DeviceSyncResult> {
+  return createRequest<DeviceSyncResult>(`/devices/${deviceId}/sync/`, payload, token);
+}
+
+export function configurePatrolDeviceNetwork(
+  deviceId: number,
+  payload: DeviceNetworkConfigPayload,
+  token: string,
+): Promise<DeviceNetworkConfigResult> {
+  return createRequest<DeviceNetworkConfigResult>(`/devices/${deviceId}/configure-network/`, payload, token);
+}
+
 export function createCheckpoint(payload: Record<string, unknown>, token: string) {
   return createRequest<CheckpointEntity>("/checkpoints/", payload, token);
 }
@@ -492,14 +581,6 @@ export async function downloadReport(reportId: number, format: "csv" | "json", t
   URL.revokeObjectURL(url);
 }
 
-export async function logout(token: string): Promise<void> {
-  const response = await fetch(`${API_BASE_URL}/auth/logout/`, {
-    method: "POST",
-    headers: {
-      Authorization: `Token ${token}`,
-    },
-  });
-  if (!response.ok && response.status !== 204) {
-    throw new Error(`Logout failed with ${response.status}`);
-  }
+export function logout(token: string): Promise<void> {
+  return sharedLogout(token);
 }

@@ -1,4 +1,7 @@
 from django.contrib.auth import get_user_model
+from django.utils import timezone
+from datetime import timedelta
+from django.conf import settings
 from rest_framework import permissions, status, viewsets
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
@@ -19,10 +22,13 @@ class AuthLoginView(APIView):
         serializer = LoginSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         user = serializer.validated_data["user"]
-        token, _ = Token.objects.get_or_create(user=user)
+        Token.objects.filter(user=user).delete()
+        token = Token.objects.create(user=user)
+        expires_at = timezone.now() + timedelta(seconds=settings.AUTH_TOKEN_TTL_SECONDS)
         return Response(
             {
                 "token": token.key,
+                "expires_at": expires_at.isoformat(),
                 "user": CurrentUserSerializer(user).data,
             }
         )

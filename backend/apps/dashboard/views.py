@@ -1,6 +1,6 @@
 from django.db.models import Count, F, Max, Q
 from django.utils import timezone
-from rest_framework.exceptions import PermissionDenied
+from rest_framework.exceptions import PermissionDenied, ValidationError
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -11,6 +11,7 @@ from apps.devices.models import PatrolDevice
 from apps.guards.models import GuardProfile
 from apps.incidents.models import ClientComplaint, IncidentReport, SupervisorInspection
 from apps.incidents.serializers import ClientComplaintSerializer
+from apps.patrols.live_monitoring import build_live_monitoring_snapshot
 from apps.patrols.models import Checkpoint, PatrolException, PatrolRecord, PatrolRoute
 from apps.reports.models import ReportRequest
 from apps.reports.serializers import ReportRequestSerializer
@@ -245,6 +246,21 @@ class OperationsOverviewView(APIView):
                 ],
             }
         )
+
+
+class LiveMonitoringView(APIView):
+    permission_classes = [IsAuthenticated, InternalOnlyPermission]
+
+    def get(self, request):
+        site_id = request.query_params.get("site_id")
+        if site_id in (None, ""):
+            parsed_site_id = None
+        else:
+            try:
+                parsed_site_id = int(site_id)
+            except (TypeError, ValueError) as exc:
+                raise ValidationError({"site_id": "Must be a valid integer."}) from exc
+        return Response(build_live_monitoring_snapshot(site_id=parsed_site_id))
 
 
 class ClientPortalSummaryView(APIView):

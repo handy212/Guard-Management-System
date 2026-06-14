@@ -176,14 +176,36 @@ class Command(BaseCommand):
             ("00A954A3", "Server Room"),
         ]
         created_checkpoints = []
+        checkpoint_coords = {
+            "00AFCD11": ("5.604000", "-0.187500"),
+            "0F2C6002": ("5.603500", "-0.186800"),
+            "00A954A3": ("5.604200", "-0.186500"),
+        }
         for code, name in checkpoints:
-            checkpoint, _ = Checkpoint.objects.get_or_create(site=site, code=code, defaults={"name": name, "event_codes": "0"})
+            lat, lng = checkpoint_coords.get(code, (None, None))
+            checkpoint, _ = Checkpoint.objects.get_or_create(
+                site=site,
+                code=code,
+                defaults={"name": name, "event_codes": "0", "latitude": lat, "longitude": lng},
+            )
+            if lat and lng and (checkpoint.latitude is None or checkpoint.longitude is None):
+                checkpoint.latitude = lat
+                checkpoint.longitude = lng
+                checkpoint.save(update_fields=["latitude", "longitude", "updated_at"])
             created_checkpoints.append(checkpoint)
         route, _ = PatrolRoute.objects.get_or_create(site=site, code="night-route", defaults={"name": "Night Route"})
         for index, checkpoint in enumerate(created_checkpoints, start=1):
             PatrolRouteCheckpoint.objects.get_or_create(route=route, checkpoint=checkpoint, defaults={"sequence": index, "expected_offset_minutes": (index - 1) * 20})
-        annex_checkpoint_one, _ = Checkpoint.objects.get_or_create(site=second_site, code="ANNEX-CP-1", defaults={"name": "Fence Corner", "event_codes": "0"})
-        annex_checkpoint_two, _ = Checkpoint.objects.get_or_create(site=second_site, code="ANNEX-CP-2", defaults={"name": "Fuel Store", "event_codes": "0"})
+        annex_checkpoint_one, _ = Checkpoint.objects.get_or_create(
+            site=second_site,
+            code="ANNEX-CP-1",
+            defaults={"name": "Fence Corner", "event_codes": "0", "latitude": "5.602800", "longitude": "-0.188100"},
+        )
+        annex_checkpoint_two, _ = Checkpoint.objects.get_or_create(
+            site=second_site,
+            code="ANNEX-CP-2",
+            defaults={"name": "Fuel Store", "event_codes": "0", "latitude": "5.602500", "longitude": "-0.187700"},
+        )
         annex_route, _ = PatrolRoute.objects.get_or_create(site=second_site, code="annex-route", defaults={"name": "Annex Route"})
         PatrolRouteCheckpoint.objects.get_or_create(route=annex_route, checkpoint=annex_checkpoint_one, defaults={"sequence": 1, "expected_offset_minutes": 0})
         PatrolRouteCheckpoint.objects.get_or_create(route=annex_route, checkpoint=annex_checkpoint_two, defaults={"sequence": 2, "expected_offset_minutes": 25})
@@ -236,6 +258,26 @@ class Command(BaseCommand):
                 "guard_identifier": guard.employee_number,
                 "checkpoint_identifier": created_checkpoints[1].code,
                 "raw_payload": {"seeded": True},
+            },
+        )
+        PatrolRecord.objects.get_or_create(
+            source=PatrolRecord.Source.TCP,
+            source_record_id="seed-live-1",
+            device_number=device.device_number,
+            defaults={
+                "device": device,
+                "guard": guard,
+                "route": route,
+                "checkpoint": created_checkpoints[0],
+                "occurred_at": timezone.now() - timedelta(minutes=3),
+                "guard_identifier": guard.employee_number,
+                "checkpoint_identifier": created_checkpoints[0].code,
+                "record_type": "GPSCheckPoint",
+                "latitude": "5.603950",
+                "longitude": "-0.187450",
+                "speed": "0.80",
+                "satellites": 8,
+                "raw_payload": {"seeded_live": True},
             },
         )
 

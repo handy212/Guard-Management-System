@@ -4,8 +4,17 @@ from unittest.mock import patch
 from urllib.error import HTTPError, URLError
 
 from django.test import SimpleTestCase, override_settings
+from django.urls import reverse
+from django.utils import timezone
+from rest_framework.test import APITestCase
+
+from apps.clients.models import Client
+from apps.devices.models import PatrolDevice
+from apps.patrols.models import PatrolRecord
+from apps.sites.models import Site
 
 from .gateways import DeviceCommandResult, FakePatrolDeviceGateway, SdkPatrolDeviceGateway, get_patrol_device_gateway
+from .services import _resolve_pending_records
 
 
 class _FakeHttpResponse:
@@ -20,6 +29,24 @@ class _FakeHttpResponse:
 
     def __exit__(self, exc_type, exc, tb):
         return False
+
+
+class ResolvePendingRecordsTests(SimpleTestCase):
+    def test_sdk_gateway_does_not_fall_back_to_metadata(self):
+        records = _resolve_pending_records(
+            is_fake_gateway=False,
+            records_result_payload={"records": None},
+            metadata={"pending_records": [{"source_record_id": "legacy"}]},
+        )
+        self.assertEqual(records, [])
+
+    def test_fake_gateway_uses_metadata_when_adapter_returns_empty(self):
+        records = _resolve_pending_records(
+            is_fake_gateway=True,
+            records_result_payload={"records": []},
+            metadata={"pending_records": [{"source_record_id": "legacy"}]},
+        )
+        self.assertEqual(records, [{"source_record_id": "legacy"}])
 
 
 class PatrolDeviceGatewayTests(SimpleTestCase):
@@ -98,3 +125,85 @@ class PatrolDeviceGatewayTests(SimpleTestCase):
     def test_get_patrol_device_gateway_returns_fake_gateway(self):
         gateway = get_patrol_device_gateway()
         self.assertIsInstance(gateway, FakePatrolDeviceGateway)
+
+
+class PatrolRecordIngestViewTests(APITestCase):
+    def setUp(self):
+        client = Client.objects.create(name="Client One", code="client-one")
+        site = Site.objects.create(client=client, name="HQ", code="hq")
+        self.device = PatrolDevice.objects.create(site=site, name="Reader", device_number="reader-tcp-1")
+
+    @override_settings(PATROL_INGEST_API_TOKEN="")
+    def test_ingest_rejects_when_token_not_configured(self):
+        response = self.client.post(
+            reverse("patrol-record-ingest"),
+            {"records": []},
+            format="json",
+            HTTP_AUTHORIZATION="Bearer change-me-ingest-token",
+        )
+        self.assertEqual(response.status_code, 503)
+
+    @override_settings(PATROL_INGEST_API_TOKEN="change-me-ingest-token")
+    def test_ingest_rejects_missing_token(self):
+        response = self.client.post(reverse("patrol-record-ingest"), {"records": []}, format="json")
+        self.assertEqual(response.status_code, 403)
+
+    @override_settings(PATROL_INGEST_API_TOKEN="change-me-ingest-token")
+    def test_ingest_accepts_bearer_token_and_imports_tcp_record(self):
+        occurred_at = timezone.now().replace(microsecond=0).isoformat()
+        payload = {
+            "source": "tcp",
+            "records": [
+                {
+                    "source_record_id": "tcp-demo-1",
+                    "device_number": self.device.device_number,
+                    "guard_card_number": "G001",
+                    "checkpoint_code": "CP1",
+                    "occurred_at": occurred_at,
+                    "record_type": "patrol",
+                    "information": "GPRS push",
+                }
+            ],
+        }
+        response = self.client.post(
+            reverse("patrol-record-ingest"),
+            payload,
+            format="json",
+            HTTP_AUTHORIZATION="Bearer change-me-ingest-token",
+        )
+        self.assertEqual(response.status_code, 201)
+        self.assertEqual(response.data["imported_count"], 1)
+        record = PatrolRecord.objects.get(source_record_id="tcp-demo-1")
+        self.assertEqual(record.source, PatrolRecord.Source.TCP)
+        self.assertEqual(record.device_number, self.device.device_number)
+
+    @override_settings(PATROL_INGEST_API_TOKEN="change-me-ingest-token")
+    def test_ingest_accepts_gps_coordinates_without_json_error(self):
+        occurred_at = timezone.now().replace(microsecond=0).isoformat()
+        payload = {
+            "source": "tcp",
+            "records": [
+                {
+                    "source_record_id": "tcp-gps-1",
+                    "device_number": self.device.device_number,
+                    "guard_card_number": "G001",
+                    "checkpoint_code": "CP1",
+                    "occurred_at": occurred_at,
+                    "record_type": "GPSCheckPoint",
+                    "latitude": "5.604100",
+                    "longitude": "-0.187300",
+                    "speed": "1.25",
+                    "satellites": 7,
+                }
+            ],
+        }
+        response = self.client.post(
+            reverse("patrol-record-ingest"),
+            payload,
+            format="json",
+            HTTP_AUTHORIZATION="Bearer change-me-ingest-token",
+        )
+        self.assertEqual(response.status_code, 201)
+        record = PatrolRecord.objects.get(source_record_id="tcp-gps-1")
+        self.assertEqual(str(record.latitude), "5.604100")
+        self.assertIn("latitude", record.raw_payload)

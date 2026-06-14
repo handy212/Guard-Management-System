@@ -4,33 +4,33 @@ import { CurrentUser, OperationsOverview, SetupData, SupportData, fetchDashboard
 export type RouteKey =
   | "dashboard"
   | "operations/sites"
-  | "operations/sites/new"
   | "operations/guards"
-  | "operations/guards/new"
   | "operations/shifts"
-  | "operations/shifts/new"
   | "operations/assignments"
-  | "operations/assignments/new"
   | "patrol/devices"
-  | "patrol/devices/new"
   | "patrol/checkpoints"
-  | "patrol/checkpoints/new"
   | "patrol/routes"
-  | "patrol/routes/new"
-  | "patrol/routes/steps/new"
   | "patrol/monitoring"
   | "incidents/center"
   | "incidents/inspections"
   | "clients/clients"
-  | "clients/clients/new"
   | "clients/contracts"
   | "clients/site-access"
   | "reports"
-  | "reports/new"
   | "admin/users"
   | "admin/roles"
   | "admin/audit-logs"
   | "admin/settings";
+
+export type RecordFocusKind = "client" | "site" | "guard" | "device";
+
+export type RecordFocus = {
+  kind: RecordFocusKind;
+  id: number;
+  label: string;
+  route: RouteKey;
+  tab?: string;
+};
 
 export type NavItem = {
   route: RouteKey;
@@ -61,7 +61,9 @@ export type PageContext = {
   error: string;
   isSubmitting: boolean;
   isLoading: boolean;
-  navigate: (route: RouteKey) => void;
+  navigate: (route: RouteKey, focus?: RecordFocus | null) => void;
+  recordFocus: RecordFocus | null;
+  clearRecordFocus: () => void;
   refreshAll: (activeToken?: string) => Promise<void>;
   handleLogout: () => Promise<void>;
   runAction: (action: () => Promise<unknown>, successMessage: string, afterSuccess?: () => void) => Promise<void>;

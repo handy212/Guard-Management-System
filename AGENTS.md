@@ -8,6 +8,8 @@ This repository is a modular Guard Management System with:
 - `frontend/admin-web/`: React + TypeScript + Vite admin dashboard.
 - `frontend/client-portal/`: React + TypeScript + Vite client portal.
 - `integrations/patrol-device-sdk/`: notes and adapter boundary for vendor patrol device SDK integration.
+- `integrations/patrol-device-adapter/`: USB command adapter (`libJComm.dll`) on port 8050.
+- `integrations/patrol-gprs-listener/`: GPRS/TCP push listener (`Jwm.Device.Lib2.dll`) on port 8989.
 - `WM-5000Z-SDK-20230320/`: vendor SDK files. Do not edit vendor SDK files.
 
 ## Architecture Rules
@@ -39,20 +41,53 @@ python manage.py runserver 127.0.0.1:8000
 ```bash
 cd backend
 . .venv/bin/activate
+pip install -r requirements.txt
 python manage.py check
 python manage.py test
 ```
+
+Run the API with ASGI (required for live monitoring WebSockets):
+
+```bash
+python manage.py runserver 127.0.0.1:8000
+```
+
+`daphne` is installed via `channels[daphne]`; Django's dev server will serve HTTP and `/ws/monitoring/live/`.
 
 ## API Authentication
 
 Development token authentication endpoints:
 
-- `POST /api/v1/auth/login/` with `username` and `password`.
+- `POST /api/v1/auth/login/` with `username` and `password` — returns `token`, `expires_at`, and `user`.
 - `GET /api/v1/auth/me/` with `Authorization: Token <token>`.
 - `POST /api/v1/auth/logout/` with `Authorization: Token <token>`.
 - `GET /api/v1/client-portal/summary/` with a client-linked user token.
 
-DRF token auth is acceptable for the MVP. Production hardening should add token expiry, rotation, HTTPS-only deployment, and tighter session/device controls.
+Tokens expire after `AUTH_TOKEN_TTL_SECONDS` (default 7 days). Expired tokens are rejected and deleted. Client-linked users without a role cannot access internal module APIs; give client users only the minimum read permissions they need, and prefer `/api/v1/client-portal/*` endpoints for portal workflows.
+
+Set `DJANGO_ENV=production` to enable HTTPS-only cookie flags and HSTS. See `backend/.env.example`.
+
+## Patrol device gateway
+
+- `DEVICE_GATEWAY=fake` — local placeholder gateway (default).
+- `DEVICE_GATEWAY=sdk` — HTTP calls to the Windows adapter at `DEVICE_ADAPTER_BASE_URL`.
+
+See `integrations/patrol-device-adapter/README.md` for adapter setup and hardware verification.
+
+## Patrol GPRS/TCP ingest
+
+Devices on patrol push binary packets to the TCP listener (default port **8989**). The listener parses with `Jwm.Device.Lib2.dll`, replies with `ResponseBytes`, and forwards normalized records to Django:
+
+- `POST /api/v1/device-ingest/patrol-records/` with `Authorization: Bearer <PATROL_INGEST_API_TOKEN>`
+- Set the same token in backend `.env` and the listener config.
+
+USB functions `SetIpAndPort`, `SetDomain`, and `SetDialParam` (via the adapter) configure where devices push. See `integrations/patrol-gprs-listener/README.md` and `integrations/patrol-device-sdk/README.md`.
+
+## Live monitoring WebSocket
+
+Admin **Monitoring → Live map** opens `ws://<host>/ws/monitoring/live/?token=<DRF token>&site_id=<optional>`.
+
+New patrol records broadcast instantly to connected dashboards. Polling remains as a fallback when the socket is disconnected.
 
 Demo accounts after `python manage.py seed_demo`:
 
@@ -118,3 +153,5 @@ Confirmed USB SDK functions include:
 - `DownloadVoice(filename)`
 
 The SDK docs state return values greater than or equal to zero mean communication succeeded; negative values represent SDK errors.
+
+GPRS/TCP live push uses `Jwm.Device.Lib2.dll` (`WmDevice.parseData()`). See `WM5000LT_Protocol_Package_English.md` and `integrations/patrol-gprs-listener/`.

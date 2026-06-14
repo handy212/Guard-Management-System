@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "HBNsxqCsAjN9rE9hZO2+MGqWQxFFsvEfOx1jw0ZtJdQ=",
+  "Source": "PatrolDeviceAdapter",
+  "BasePath": "_content/PatrolDeviceAdapter",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

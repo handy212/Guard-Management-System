@@ -18,17 +18,23 @@ class AuditLogMixin:
         self._write_audit_log(self.audit_delete_action, instance)
         instance.delete()
 
-    def _write_audit_log(self, action: str, instance):
+    def audit_action(self, action: str, instance, extra_metadata=None):
+        self._write_audit_log(action, instance, extra_metadata=extra_metadata)
+
+    def _write_audit_log(self, action: str, instance, extra_metadata=None):
         request = getattr(self, "request", None)
         actor = request.user if request and request.user.is_authenticated else None
         model = instance.__class__
+        metadata = {"path": request.path if request else ""}
+        if extra_metadata:
+            metadata.update(extra_metadata)
         AuditLog.objects.create(
             actor=actor,
             action=action,
             entity_type=f"{model._meta.app_label}.{model.__name__}",
             entity_id=str(instance.pk),
             summary=f"{action} {model.__name__} {instance.pk}",
-            metadata={"path": request.path if request else ""},
+            metadata=metadata,
             ip_address=self._get_ip_address(request),
         )
 

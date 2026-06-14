@@ -36,6 +36,7 @@ class GuardAssignmentViewSet(AuditLogMixin, viewsets.ModelViewSet):
         assignment.status = GuardAssignment.Status.CONFIRMED
         assignment.deployment_confirmed_at = timezone.now()
         assignment.save(update_fields=["status", "deployment_confirmed_at", "updated_at"])
+        self.audit_action("confirm_deployment", assignment)
         return Response({"assignment": assignment.id, "status": assignment.status, "deployment_confirmed_at": assignment.deployment_confirmed_at.isoformat()})
 
     @action(detail=True, methods=["post"], url_path="check-in")
@@ -55,6 +56,7 @@ class GuardAssignmentViewSet(AuditLogMixin, viewsets.ModelViewSet):
         )
         serializer.is_valid(raise_exception=True)
         attendance = serializer.save()
+        self.audit_action("check_in", assignment, extra_metadata={"attendance_id": attendance.id})
         return Response({"assignment": assignment.id, "attendance_id": attendance.id, "checked_in_at": attendance.checked_in_at.isoformat()})
 
     @action(detail=True, methods=["post"], url_path="check-out")
@@ -76,12 +78,18 @@ class GuardAssignmentViewSet(AuditLogMixin, viewsets.ModelViewSet):
         attendance = serializer.save()
         assignment.status = GuardAssignment.Status.COMPLETED
         assignment.save(update_fields=["status", "updated_at"])
+        patrol_evaluation = evaluate_assignment_patrol(assignment)
+        self.audit_action(
+            "check_out",
+            assignment,
+            extra_metadata={"attendance_id": attendance.id, "patrol_status": patrol_evaluation.get("status")},
+        )
         return Response(
             {
                 "assignment": assignment.id,
                 "attendance_id": attendance.id,
                 "checked_out_at": attendance.checked_out_at.isoformat(),
-                "patrol_evaluation": evaluate_assignment_patrol(assignment),
+                "patrol_evaluation": patrol_evaluation,
             }
         )
 
