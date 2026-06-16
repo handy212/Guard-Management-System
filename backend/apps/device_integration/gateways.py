@@ -230,6 +230,13 @@ class SdkPatrolDeviceGateway:
 
 
 def get_patrol_device_gateway() -> PatrolDeviceGateway:
-    if settings.DEVICE_GATEWAY == "sdk":
+    mode = getattr(settings, "DEVICE_GATEWAY", "fake")
+    if mode == "sdk":
         return SdkPatrolDeviceGateway()
-    return FakePatrolDeviceGateway()
+    if mode == "fake":
+        return FakePatrolDeviceGateway()
+    raise ValueError(f"Unsupported DEVICE_GATEWAY value: {mode!r}")
+
+
+def is_fake_patrol_device_gateway(gateway: PatrolDeviceGateway) -> bool:
+    return isinstance(gateway, FakePatrolDeviceGateway)

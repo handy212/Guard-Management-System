@@ -212,6 +212,8 @@ class PatrolImportTests(APITestCase):
             body = json.loads(request.data.decode("utf-8"))
             if body["command"] == "OpenDevice":
                 payload = {"success": True, "code": 0, "message": "ok", "payload": {"opened": True}}
+            elif body["command"] in {"SetReadDataCallback", "Verify"}:
+                payload = {"success": True, "code": 0, "message": "ok", "payload": {"ready": True}}
             elif body["command"] == "GetRecords":
                 payload = {
                     "success": True,

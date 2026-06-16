@@ -1,5 +1,8 @@
+import secrets
+
 from django.conf import settings
 from rest_framework import status
+from rest_framework.exceptions import ValidationError
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -19,7 +22,7 @@ class PatrolRecordIngestPermission:
             token = authorization[7:].strip()
         else:
             token = authorization.strip()
-        return token == expected
+        return secrets.compare_digest(token, expected)
 
 
 class PatrolRecordIngestView(APIView):
@@ -41,8 +44,11 @@ class PatrolRecordIngestView(APIView):
         serializer = PatrolRecordImportSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         device = None
-        if serializer.validated_data.get("device_id"):
-            device = PatrolDevice.objects.get(id=serializer.validated_data["device_id"])
+        device_id = serializer.validated_data.get("device_id")
+        if device_id:
+            device = PatrolDevice.objects.filter(id=device_id).first()
+            if device is None:
+                raise ValidationError({"device_id": "Patrol device not found."})
 
         source = serializer.validated_data.get("source") or PatrolRecord.Source.TCP
         result = import_patrol_records(

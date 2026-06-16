@@ -77,7 +77,6 @@ CHANNEL_LAYERS = {
         "BACKEND": "channels.layers.InMemoryChannelLayer",
     }
 }
-ASGI_APPLICATION = "config.asgi.application"
 
 DATABASES = {
     "default": {

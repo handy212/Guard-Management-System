@@ -232,7 +232,13 @@ def publish_live_monitoring_update(record_id: int) -> None:
     if channel_layer is None:
         return
 
-    record = PatrolRecord.objects.select_related("guard", "checkpoint", "checkpoint__site", "device", "route").get(id=record_id)
+    try:
+        record = PatrolRecord.objects.select_related(
+            "guard", "checkpoint", "checkpoint__site", "device", "route"
+        ).get(id=record_id)
+    except PatrolRecord.DoesNotExist:
+        return
+
     payload = build_live_update_payload(record)
 
     async def _broadcast():

@@ -7,6 +7,7 @@ import {
   getMonitoringWebSocketUrl,
   LiveMonitoringSnapshot,
   LiveMonitoringUpdate,
+  mergeLiveSnapshot,
   POLL_INTERVAL_DISCONNECTED_MS,
   POLL_INTERVAL_MS,
 } from "../lib/live-monitoring";
@@ -36,6 +37,9 @@ export function LiveMonitoringPanel({context}: LiveMonitoringPanelProps) {
   const markersLayerRef = useRef<L.LayerGroup | null>(null);
   const socketRef = useRef<WebSocket | null>(null);
   const reconnectTimerRef = useRef<number | null>(null);
+  const pendingUpdatesRef = useRef<LiveMonitoringUpdate[]>([]);
+  const shouldRefitMapRef = useRef(true);
+  const connectionStateRef = useRef<ConnectionState>("connecting");
   const [snapshot, setSnapshot] = useState<LiveMonitoringSnapshot | null>(null);
   const [siteId, setSiteId] = useState<string>("");
   const [error, setError] = useState("");
@@ -57,11 +61,24 @@ export function LiveMonitoringPanel({context}: LiveMonitoringPanelProps) {
     }
     try {
       const next = await fetchLiveMonitoring(context.token, siteId ? Number(siteId) : null);
-      setSnapshot(next);
+      let merged = next;
+      if (pendingUpdatesRef.current.length) {
+        for (const update of pendingUpdatesRef.current) {
+          merged = applyLiveUpdate(merged, update);
+        }
+        pendingUpdatesRef.current = [];
+      }
+      setSnapshot((current) => {
+        if (!showSpinner && current && connectionStateRef.current === "live") {
+          return mergeLiveSnapshot(current, merged);
+        }
+        return merged;
+      });
       setError("");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Live monitoring refresh failed");
       setConnectionState("offline");
+      connectionStateRef.current = "offline";
     } finally {
       setIsLoading(false);
     }
@@ -70,6 +87,7 @@ export function LiveMonitoringPanel({context}: LiveMonitoringPanelProps) {
   const handleLiveUpdate = useCallback((update: LiveMonitoringUpdate) => {
     setSnapshot((current) => {
       if (!current) {
+        pendingUpdatesRef.current.push(update);
         return current;
       }
       return applyLiveUpdate(current, update);
@@ -81,8 +99,11 @@ export function LiveMonitoringPanel({context}: LiveMonitoringPanelProps) {
   }, []);
 
   useEffect(() => {
+    shouldRefitMapRef.current = true;
+    pendingUpdatesRef.current = [];
+    setSnapshot(null);
     void loadLiveData(true);
-  }, [loadLiveData]);
+  }, [siteId, context.token, loadLiveData]);
 
   useEffect(() => {
     const pollMs = connectionState === "live" ? POLL_INTERVAL_MS : POLL_INTERVAL_DISCONNECTED_MS;
@@ -115,7 +136,10 @@ export function LiveMonitoringPanel({context}: LiveMonitoringPanelProps) {
       if (cancelled) {
         return;
       }
-      setConnectionState((current) => (current === "offline" ? "polling" : "connecting"));
+      const nextConnectionState: ConnectionState =
+        connectionStateRef.current === "offline" ? "polling" : "connecting";
+      connectionStateRef.current = nextConnectionState;
+      setConnectionState(nextConnectionState);
       const socket = new WebSocket(getMonitoringWebSocketUrl(context.token, siteId ? Number(siteId) : null));
       socketRef.current = socket;
 
@@ -125,6 +149,7 @@ export function LiveMonitoringPanel({context}: LiveMonitoringPanelProps) {
           return;
         }
         setConnectionState("live");
+        connectionStateRef.current = "live";
         setError("");
       };
 
@@ -145,6 +170,7 @@ export function LiveMonitoringPanel({context}: LiveMonitoringPanelProps) {
         }
         socketRef.current = null;
         setConnectionState("polling");
+        connectionStateRef.current = "polling";
         scheduleReconnect(3000);
       };
 
@@ -233,12 +259,15 @@ export function LiveMonitoringPanel({context}: LiveMonitoringPanelProps) {
       marker.addTo(layer);
     }
 
-    if (bounds.length === 1) {
+    if (bounds.length === 1 && shouldRefitMapRef.current) {
       map.setView(bounds[0], 16);
-    } else if (bounds.length > 1) {
+      shouldRefitMapRef.current = false;
+    } else if (bounds.length > 1 && shouldRefitMapRef.current) {
       map.fitBounds(L.latLngBounds(bounds), {padding: [28, 28], maxZoom: 17});
-    } else {
+      shouldRefitMapRef.current = false;
+    } else if (!bounds.length && shouldRefitMapRef.current) {
       map.setView(DEFAULT_CENTER, 14);
+      shouldRefitMapRef.current = false;
     }
   }, [snapshot]);
 

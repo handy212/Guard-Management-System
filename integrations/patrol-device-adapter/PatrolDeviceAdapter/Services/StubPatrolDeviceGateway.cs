@@ -12,15 +12,10 @@ public sealed class StubPatrolDeviceGateway : IPatrolDeviceSdkGateway
         {
             "OpenDevice" => Success(new Dictionary<string, object?> {["opened"] = true}),
             "CloseDevice" => Success(new Dictionary<string, object?> {["closed"] = true}),
-            "GetDeviceId" => Success(new Dictionary<string, object?> {["device_id"] = "STUB-DEVICE-001"}),
+            "GetDeviceId" => Success(new Dictionary<string, object?> {["device_id"] = "WM5000Z-DEMO-001"}),
             "Verify" => Success(new Dictionary<string, object?> {["verified"] = ReadInt(request, "value")}),
             "SetDateTime" => Success(new Dictionary<string, object?> {["datetime"] = ReadString(request, "value")}),
-            "GetRecords" => Success(new Dictionary<string, object?>
-            {
-                ["filename"] = ReadString(request, "filename"),
-                ["encrypted"] = ReadInt(request, "encrypted"),
-                ["records"] = Array.Empty<object>(),
-            }),
+            "GetRecords" => BuildStubRecords(request),
             "ClearRecords" => Success(new Dictionary<string, object?> {["cleared"] = true}),
             "SetAgent" => Success(new Dictionary<string, object?> {["agent"] = ReadString(request, "agent")}),
             "GetAgent" => Success(new Dictionary<string, object?> {["agent"] = "Stub Agent"}),
@@ -56,6 +51,41 @@ public sealed class StubPatrolDeviceGateway : IPatrolDeviceSdkGateway
             "DownloadVoice" => Success(new Dictionary<string, object?> {["filename"] = ReadString(request, "filename")}),
             _ => Failure(-1, $"Unsupported command '{command}'."),
         };
+    }
+
+    private static DeviceCommandResponse BuildStubRecords(DeviceCommandRequest request)
+    {
+        var filename = ReadString(request, "filename");
+        var encrypted = ReadInt(request, "encrypted");
+        var records = Array.Empty<object>();
+        if (!string.IsNullOrWhiteSpace(filename) && File.Exists(filename))
+        {
+            records = RecordsFileParser.ParseFile(filename).Cast<object>().ToArray();
+        }
+
+        if (records.Length == 0)
+        {
+            records =
+            [
+                new Dictionary<string, object?>
+                {
+                    ["source_record_id"] = "stub-usb-demo-1",
+                    ["device_number"] = "WM5000Z-DEMO-001",
+                    ["guard_card_number"] = "CARD1",
+                    ["checkpoint_code"] = "CP1",
+                    ["occurred_at"] = DateTime.UtcNow.ToString("o"),
+                    ["record_type"] = "normal",
+                    ["information"] = "Stub USB sync record",
+                },
+            ];
+        }
+
+        return Success(new Dictionary<string, object?>
+        {
+            ["filename"] = filename,
+            ["encrypted"] = encrypted,
+            ["records"] = records,
+        });
     }
 
     private static DeviceCommandResponse Success(Dictionary<string, object?> payload) =>

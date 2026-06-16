@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PatrolDeviceAdapter")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+559dbd4ca769f70828bd6102e4ba5baa0aad06be")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ce1be6e8ceae2315310e35cc64ef5718f26349c0")]
 [assembly: System.Reflection.AssemblyProductAttribute("PatrolDeviceAdapter")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PatrolDeviceAdapter")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

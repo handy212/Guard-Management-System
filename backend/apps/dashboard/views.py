@@ -113,7 +113,8 @@ class OperationsOverviewView(APIView):
         )
 
         active_assignments = (
-            GuardAssignment.objects.select_related(
+            GuardAssignment.objects.filter(shift__starts_at__date=today)
+            .select_related(
                 "guard",
                 "supervisor",
                 "shift",
@@ -123,7 +124,7 @@ class OperationsOverviewView(APIView):
                 "patrol_device",
             )
             .prefetch_related("attendance_records", "patrol_exceptions")
-            .order_by("shift__starts_at")[:8]
+            .order_by("-shift__starts_at")[:8]
         )
 
         open_exception_qs = (

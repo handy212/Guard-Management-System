@@ -1,8 +1,10 @@
 import json
+from datetime import timedelta
 from urllib.parse import parse_qs
 
 from channels.db import database_sync_to_async
 from channels.generic.websocket import AsyncWebsocketConsumer
+from django.conf import settings
 from django.utils import timezone
 from rest_framework.authtoken.models import Token
 
@@ -21,6 +23,11 @@ def authenticate_monitoring_token(token_key: str):
         return None
     if getattr(user, "client_id", None) and not user.is_superuser:
         return None
+
+    ttl_seconds = getattr(settings, "AUTH_TOKEN_TTL_SECONDS", 0)
+    if ttl_seconds > 0 and timezone.now() - token.created > timedelta(seconds=ttl_seconds):
+        token.delete()
+        return None
     return user
 
 
@@ -35,8 +42,18 @@ class LiveMonitoringConsumer(AsyncWebsocketConsumer):
             await self.close(code=4401)
             return
 
+        parsed_site_id = None
+        if site_id.strip():
+            try:
+                parsed_site_id = int(site_id.strip())
+                if parsed_site_id <= 0:
+                    raise ValueError
+            except (TypeError, ValueError):
+                await self.close(code=4400)
+                return
+
         self.user = user
-        self.site_id = site_id.strip() or None
+        self.site_id = str(parsed_site_id) if parsed_site_id is not None else None
         self.groups = ["live_monitoring"]
         if self.site_id:
             self.groups.append(f"live_monitoring_site_{self.site_id}")
@@ -50,7 +67,7 @@ class LiveMonitoringConsumer(AsyncWebsocketConsumer):
                 {
                     "type": "connected",
                     "generated_at": timezone.now().isoformat(),
-                    "site_id": int(self.site_id) if self.site_id else None,
+                    "site_id": parsed_site_id,
                 }
             )
         )

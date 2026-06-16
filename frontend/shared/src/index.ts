@@ -38,7 +38,7 @@ export function getApiBaseUrl() {
 export function getMonitoringWebSocketUrl(token: string, siteId?: number | null) {
   const apiBase = getApiBaseUrl().replace(/\/$/, "");
   const httpOrigin = apiBase.replace(/\/api\/v1$/, "");
-  const wsOrigin = httpOrigin.replace(/^http/i, (scheme) => (scheme === "https" ? "wss" : "ws"));
+  const wsOrigin = httpOrigin.replace(/^https/i, "wss").replace(/^http/i, "ws");
   const params = new URLSearchParams({token});
   if (siteId) {
     params.set("site_id", String(siteId));

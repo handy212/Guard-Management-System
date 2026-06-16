@@ -13,3 +13,5 @@ build/
 media/
 staticfiles/
 *.sqlite3
+**/bin/
+**/obj/

@@ -1,7 +1,7 @@
 from datetime import timedelta
 from decimal import Decimal
 
-from django.db import IntegrityError
+from django.db import IntegrityError, transaction
 
 from apps.devices.models import PatrolDevice
 from apps.guards.models import GuardProfile
@@ -113,55 +113,16 @@ def import_patrol_records(records, default_source=PatrolRecord.Source.MANUAL_IMP
     duplicate_count = 0
     affected_assignments = set()
 
-    for item in records:
-        device = _resolve_device(item, default_device)
-        guard = _resolve_guard(item)
-        checkpoint = _resolve_checkpoint(item, device)
-        route = _resolve_route(item, checkpoint, device)
-        assignment = _resolve_assignment(item, guard, route, device)
-
-        payload = {
-            "source": item.get("source") or default_source,
-            "source_record_id": item.get("source_record_id", ""),
-            "device": device,
-            "guard": guard,
-            "checkpoint": checkpoint,
-            "route": route,
-            "device_number": item.get("device_number") or (device.device_number if device else ""),
-            "imei": item.get("imei") or (device.imei if device else ""),
-            "guard_identifier": item.get("guard_identifier") or item.get("guard_employee_number") or item.get("guard_card_number", ""),
-            "checkpoint_identifier": item.get("checkpoint_identifier") or item.get("checkpoint_code") or (checkpoint.code if checkpoint else ""),
-            "record_type": item.get("record_type", ""),
-            "occurred_at": item["occurred_at"],
-            "information": item.get("information", ""),
-            "latitude": item.get("latitude"),
-            "longitude": item.get("longitude"),
-            "speed": item.get("speed"),
-            "satellites": item.get("satellites"),
-            "raw_payload": _normalize_raw_payload(item.get("raw_payload") or _build_raw_payload(item)),
-        }
-
-        lookup = {
-            "source": payload["source"],
-            "device_number": payload["device_number"],
-            "source_record_id": payload["source_record_id"],
-        }
-        defaults = payload.copy()
-        defaults.pop("source")
-        defaults.pop("device_number")
-        defaults.pop("source_record_id")
-
-        record, created = PatrolRecord.objects.get_or_create(
-            **lookup,
-            defaults=defaults,
-        )
-        if created:
-            imported_records.append(record)
-        else:
-            duplicate_count += 1
-
-        if assignment:
-            affected_assignments.add(assignment.id)
+    with transaction.atomic():
+        for item in records:
+            imported_records, duplicate_count, affected_assignments = _import_single_patrol_record(
+                item,
+                default_source=default_source,
+                default_device=default_device,
+                imported_records=imported_records,
+                duplicate_count=duplicate_count,
+                affected_assignments=affected_assignments,
+            )
 
     evaluation_results = [
         evaluate_assignment_patrol(
@@ -178,9 +139,70 @@ def import_patrol_records(records, default_source=PatrolRecord.Source.MANUAL_IMP
     }
 
 
+def _import_single_patrol_record(
+    item,
+    *,
+    default_source,
+    default_device,
+    imported_records,
+    duplicate_count,
+    affected_assignments,
+):
+    device = _resolve_device(item, default_device)
+    guard = _resolve_guard(item)
+    checkpoint = _resolve_checkpoint(item, device)
+    route = _resolve_route(item, checkpoint, device)
+    assignment = _resolve_assignment(item, guard, route, device)
+
+    payload = {
+        "source": item.get("source") or default_source,
+        "source_record_id": item.get("source_record_id", ""),
+        "device": device,
+        "guard": guard,
+        "checkpoint": checkpoint,
+        "route": route,
+        "device_number": item.get("device_number") or (device.device_number if device else ""),
+        "imei": item.get("imei") or (device.imei if device else ""),
+        "guard_identifier": item.get("guard_identifier") or item.get("guard_employee_number") or item.get("guard_card_number", ""),
+        "checkpoint_identifier": item.get("checkpoint_identifier") or item.get("checkpoint_code") or (checkpoint.code if checkpoint else ""),
+        "record_type": item.get("record_type", ""),
+        "occurred_at": item["occurred_at"],
+        "information": item.get("information", ""),
+        "latitude": item.get("latitude"),
+        "longitude": item.get("longitude"),
+        "speed": item.get("speed"),
+        "satellites": item.get("satellites"),
+        "raw_payload": _normalize_raw_payload(item.get("raw_payload") or _build_raw_payload(item)),
+    }
+
+    lookup = {
+        "source": payload["source"],
+        "device_number": payload["device_number"],
+        "source_record_id": payload["source_record_id"],
+    }
+    defaults = payload.copy()
+    defaults.pop("source")
+    defaults.pop("device_number")
+    defaults.pop("source_record_id")
+
+    record, created = PatrolRecord.objects.get_or_create(
+        **lookup,
+        defaults=defaults,
+    )
+    if created:
+        imported_records.append(record)
+    else:
+        duplicate_count += 1
+
+    if assignment:
+        affected_assignments.add(assignment.id)
+
+    return imported_records, duplicate_count, affected_assignments
+
+
 def _resolve_device(item, default_device):
     if item.get("device_id"):
-        return PatrolDevice.objects.get(id=item["device_id"])
+        return PatrolDevice.objects.filter(id=item["device_id"]).first()
     if item.get("device_number"):
         return PatrolDevice.objects.filter(device_number=item["device_number"]).first()
     return default_device
@@ -188,7 +210,7 @@ def _resolve_device(item, default_device):
 
 def _resolve_guard(item):
     if item.get("guard_id"):
-        return GuardProfile.objects.get(id=item["guard_id"])
+        return GuardProfile.objects.filter(id=item["guard_id"]).first()
     if item.get("guard_employee_number"):
         return GuardProfile.objects.filter(employee_number=item["guard_employee_number"]).first()
     if item.get("guard_card_number"):
@@ -198,7 +220,7 @@ def _resolve_guard(item):
 
 def _resolve_checkpoint(item, device):
     if item.get("checkpoint_id"):
-        return Checkpoint.objects.get(id=item["checkpoint_id"])
+        return Checkpoint.objects.filter(id=item["checkpoint_id"]).first()
     if item.get("checkpoint_code"):
         checkpoint_qs = Checkpoint.objects.filter(code=item["checkpoint_code"])
         if device and device.site_id:
@@ -209,7 +231,7 @@ def _resolve_checkpoint(item, device):
 
 def _resolve_route(item, checkpoint, device):
     if item.get("route_id"):
-        return PatrolRoute.objects.get(id=item["route_id"])
+        return PatrolRoute.objects.filter(id=item["route_id"]).first()
     if item.get("route_code"):
         route_qs = PatrolRoute.objects.filter(code=item["route_code"])
         if checkpoint:

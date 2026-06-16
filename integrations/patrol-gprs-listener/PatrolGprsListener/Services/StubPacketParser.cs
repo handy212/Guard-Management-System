@@ -20,7 +20,9 @@ public sealed class StubPacketParser : IPacketParser
             };
         }
 
-        var deviceNumber = $"STUB-{payload.Length}";
+        var deviceNumber = Environment.GetEnvironmentVariable("LISTENER_STUB_DEVICE_NUMBER") ?? "WM5000Z-DEMO-001";
+        var guardCard = Environment.GetEnvironmentVariable("LISTENER_STUB_GUARD_CARD") ?? "CARD1";
+        var checkpointCode = Environment.GetEnvironmentVariable("LISTENER_STUB_CHECKPOINT_CODE") ?? "CP1";
         var occurredAt = DateTime.UtcNow.ToString("o");
         return new ParsePacketResult
         {
@@ -33,8 +35,8 @@ public sealed class StubPacketParser : IPacketParser
                 {
                     SourceRecordId = $"stub-{deviceNumber}-{payload[0]:X2}-{occurredAt}",
                     DeviceNumber = deviceNumber,
-                    GuardCardNumber = "STUB-GUARD",
-                    CheckpointCode = "STUB-CP",
+                    GuardCardNumber = guardCard,
+                    CheckpointCode = checkpointCode,
                     OccurredAt = occurredAt,
                     RecordType = "normal",
                     Information = $"stub packet ({payload.Length} bytes)",

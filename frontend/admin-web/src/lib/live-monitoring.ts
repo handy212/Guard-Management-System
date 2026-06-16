@@ -25,7 +25,7 @@ export function applyLiveUpdate(
   };
 
   if (update.scan) {
-    next.recent_scans = [update.scan, ...next.recent_scans.filter((scan) => scan.id !== update.scan.id)].slice(0, RECENT_SCAN_LIMIT);
+    next.recent_scans = [update.scan, ...next.recent_scans.filter((scan) => scan.id !== update.scan!.id)].slice(0, RECENT_SCAN_LIMIT);
   }
 
   if (update.guard) {
@@ -41,6 +41,8 @@ export function applyLiveUpdate(
     const index = next.checkpoints.findIndex((checkpoint) => checkpoint.id === update.checkpoint!.id);
     if (index >= 0) {
       next.checkpoints[index] = update.checkpoint;
+    } else {
+      next.checkpoints.push(update.checkpoint);
     }
   }
 
@@ -48,13 +50,45 @@ export function applyLiveUpdate(
 }
 
 export function mergeLiveSnapshot(
-  current: LiveMonitoringSnapshot | null,
+  current: LiveMonitoringSnapshot,
   incoming: LiveMonitoringSnapshot,
 ): LiveMonitoringSnapshot {
-  if (!current) {
-    return incoming;
+  const guardByDevice = new Map(incoming.guards.map((guard) => [guard.device_id, guard]));
+  for (const guard of current.guards) {
+    const existing = guardByDevice.get(guard.device_id);
+    if (!existing || new Date(guard.last_seen_at).getTime() > new Date(existing.last_seen_at).getTime()) {
+      guardByDevice.set(guard.device_id, guard);
+    }
   }
-  return incoming;
+
+  const scanIds = new Set(incoming.recent_scans.map((scan) => scan.id));
+  const mergedScans = [
+    ...incoming.recent_scans,
+    ...current.recent_scans.filter((scan) => !scanIds.has(scan.id)),
+  ].slice(0, RECENT_SCAN_LIMIT);
+
+  const checkpointById = new Map(incoming.checkpoints.map((checkpoint) => [checkpoint.id, checkpoint]));
+  for (const checkpoint of current.checkpoints) {
+    const existing = checkpointById.get(checkpoint.id);
+    if (!existing) {
+      checkpointById.set(checkpoint.id, checkpoint);
+      continue;
+    }
+    if (checkpoint.recently_scanned && !existing.recently_scanned) {
+      checkpointById.set(checkpoint.id, checkpoint);
+    }
+  }
+
+  return {
+    ...incoming,
+    guards: Array.from(guardByDevice.values()),
+    recent_scans: mergedScans,
+    checkpoints: Array.from(checkpointById.values()),
+    generated_at:
+      new Date(incoming.generated_at).getTime() >= new Date(current.generated_at).getTime()
+        ? incoming.generated_at
+        : current.generated_at,
+  };
 }
 
 export { fetchLiveMonitoring, getMonitoringWebSocketUrl, POLL_INTERVAL_DISCONNECTED_MS, POLL_INTERVAL_MS };

@@ -26,7 +26,7 @@ public sealed class LibJCommGateway : IPatrolDeviceSdkGateway, IDisposable
             {
                 "OpenDevice" => ExecuteOpenDevice(),
                 "CloseDevice" => ExecuteCloseDevice(),
-                "GetDeviceId" => ExecuteSimple("GetDeviceId", GetDeviceId),
+                "GetDeviceId" => ExecuteGetDeviceId(),
                 "Verify" => ExecuteVerify(ReadInt(request, "value")),
                 "SetDateTime" => ExecuteSetDateTime(ReadString(request, "value")),
                 "GetRecords" => ExecuteGetRecords(ReadString(request, "filename"), ReadInt(request, "encrypted")),
@@ -97,15 +97,23 @@ public sealed class LibJCommGateway : IPatrolDeviceSdkGateway, IDisposable
         return FromCode(code, new Dictionary<string, object?> {["datetime"] = parsed.ToString("o")});
     }
 
+    private DeviceCommandResponse ExecuteGetDeviceId()
+    {
+        EnsureDeviceOpened();
+        var code = GetDeviceId();
+        return FromCode(code, new Dictionary<string, object?> {["device_id"] = code.ToString()});
+    }
+
     private DeviceCommandResponse ExecuteGetRecords(string filename, int encrypted)
     {
         EnsureDeviceOpened();
         var code = GetRecords(filename, encrypted);
+        var records = code >= 0 ? RecordsFileParser.ParseFile(filename) : Array.Empty<Dictionary<string, object?>>();
         return FromCode(code, new Dictionary<string, object?>
         {
             ["filename"] = filename,
             ["encrypted"] = encrypted,
-            ["records"] = Array.Empty<object>(),
+            ["records"] = records,
         });
     }
 

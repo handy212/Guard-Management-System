@@ -48,7 +48,11 @@ class PatrolDeviceViewSet(AuditLogMixin, viewsets.ModelViewSet):
         serializer = PatrolDeviceNetworkConfigSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         result = configure_patrol_device_network(device, validated_data=serializer.validated_data)
-        self.audit_action("configure_network", device, extra_metadata={"mode": serializer.validated_data.get("mode")})
+        self.audit_action(
+            "configure_network",
+            device,
+            extra_metadata={"network_mode": serializer.validated_data.get("network_mode")},
+        )
         return Response(result, status=status.HTTP_200_OK)
 
     @action(detail=True, methods=["post"], url_path="configure-network-placeholder")

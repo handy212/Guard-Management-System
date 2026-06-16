@@ -28,6 +28,15 @@ export function DeviceSyncModal({device, context, onClose, onSuccess}: DeviceSyn
     setError("");
     try {
       const result = await syncPatrolDevice(Number(device.id), {clear_device_after_sync: clearDevice}, context.token);
+      if (!result.open_result.success) {
+        throw new Error(result.open_result.message || "Device connection failed");
+      }
+      if (!result.records_result.success) {
+        throw new Error(result.records_result.message || "Failed to read records from device");
+      }
+      if (result.import.imported_count === 0 && result.import.duplicate_count === 0) {
+        throw new Error("No patrol records were found on the device.");
+      }
       onSuccess(result);
       onClose();
     } catch (err) {
@@ -158,6 +167,12 @@ export function DeviceNetworkModal({device, context, onClose, onSuccess}: Device
         payload.ip = form.ip?.trim();
       }
       const result = await configurePatrolDeviceNetwork(Number(device.id), payload, context.token);
+      if (!result.open_result.success) {
+        throw new Error(result.open_result.message || "Device connection failed");
+      }
+      if (!result.config_result.success) {
+        throw new Error(result.config_result.message || "Network configuration failed");
+      }
       onSuccess(result);
       onClose();
     } catch (err) {

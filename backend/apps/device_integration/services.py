@@ -3,7 +3,7 @@ from apps.patrols.models import PatrolRecord
 from apps.patrols.services import import_patrol_records
 from django.utils import timezone
 
-from .gateways import DeviceCommandResult, get_patrol_device_gateway
+from .gateways import DeviceCommandResult, FakePatrolDeviceGateway, get_patrol_device_gateway, is_fake_patrol_device_gateway
 
 
 def _resolve_pending_records(
@@ -23,15 +23,18 @@ def _resolve_pending_records(
 def sync_patrol_device(device: PatrolDevice, *, clear_device_after_sync: bool = True) -> dict:
     gateway = get_patrol_device_gateway()
     metadata = dict(device.sdk_metadata or {})
-    is_fake_gateway = gateway.__class__.__name__ == "FakePatrolDeviceGateway"
+    is_fake_gateway = is_fake_patrol_device_gateway(gateway)
     imported = {"imported_count": 0, "duplicate_count": 0, "record_ids": [], "evaluated_assignments": []}
 
     open_result = gateway.open_device()
     records_result = DeviceCommandResult(False, code=-1, message="Device connection was not opened.")
     clear_result = None
+    sync_succeeded = False
 
     try:
         if open_result.success:
+            gateway.set_read_data_callback()
+            gateway.verify(1)
             records_result = gateway.get_records(
                 filename=f"device-{device.device_number}-records.txt",
                 encrypted=0,
@@ -52,8 +55,14 @@ def sync_patrol_device(device: PatrolDevice, *, clear_device_after_sync: bool = 
             ),
             default_device=device,
         )
+        sync_succeeded = open_result.success and (imported["imported_count"] > 0 or imported["duplicate_count"] > 0)
 
-        if clear_device_after_sync and pending_records and open_result.success:
+        if (
+            clear_device_after_sync
+            and imported["imported_count"] > 0
+            and pending_records
+            and open_result.success
+        ):
             clear_result = gateway.clear_records()
             if clear_result.success:
                 metadata["pending_records"] = []
@@ -63,12 +72,17 @@ def sync_patrol_device(device: PatrolDevice, *, clear_device_after_sync: bool = 
             "requested_clear": clear_device_after_sync,
             "imported_count": imported["imported_count"],
             "duplicate_count": imported["duplicate_count"],
+            "open_success": open_result.success,
+            "records_success": records_result.success,
             "device_gateway": "fake" if is_fake_gateway else "sdk",
         }
 
         device.sdk_metadata = metadata
-        device.last_synced_at = timezone.now()
-        device.save(update_fields=["sdk_metadata", "last_synced_at", "updated_at"])
+        if sync_succeeded:
+            device.last_synced_at = timezone.now()
+            device.save(update_fields=["sdk_metadata", "last_synced_at", "updated_at"])
+        else:
+            device.save(update_fields=["sdk_metadata", "updated_at"])
     finally:
         close_result = gateway.close_device() if open_result.success else None
 
